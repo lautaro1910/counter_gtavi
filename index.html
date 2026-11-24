@@ -319,9 +319,71 @@
       100% { height: 13px; }
     }
     .yt-host {
-      position: fixed; width: 1px; height: 1px; opacity: 0.001;
-      pointer-events: none; bottom: 0; left: 0; overflow: hidden;
+      position: fixed; width: 200px; height: 113px; opacity: 0.001;
+      pointer-events: none; bottom: 0; left: -9999px; overflow: hidden;
     }
+
+    /* ── Entry Splash Screen (unlocks browser audio) ─ */
+    body.splash-open { overflow: hidden; }
+    .splash {
+      position: fixed; inset: 0; z-index: 100;
+      display: grid; place-items: center;
+      padding: 24px;
+      background: #08070e;
+      overflow: hidden;
+      transition: opacity 650ms var(--ease), transform 650ms var(--ease), visibility 650ms;
+    }
+    .splash.leaving {
+      opacity: 0;
+      transform: scale(1.04);
+      pointer-events: none;
+      visibility: hidden;
+    }
+    .splash-bg {
+      position: absolute; inset: 0; z-index: 0;
+      width: 100%; height: 100%; object-fit: cover;
+      opacity: 0.52;
+      filter: saturate(1.15) contrast(1.05);
+      transform: scale(1.04);
+      animation: kenburns 22s ease-out forwards;
+    }
+    .splash::after {
+      content: ""; position: absolute; inset: 0; z-index: 1;
+      background:
+        radial-gradient(80% 70% at 50% 45%, rgba(8, 7, 14, 0.35) 0%, rgba(8, 7, 14, 0.9) 100%),
+        linear-gradient(180deg, rgba(8, 7, 14, 0.45) 0%, rgba(8, 7, 14, 0.88) 100%);
+    }
+    .splash-inner {
+      position: relative; z-index: 2;
+      text-align: center;
+      display: grid; justify-items: center; gap: 18px;
+      max-width: 640px;
+    }
+    .splash-title {
+      font-family: var(--font-display);
+      font-size: clamp(3.5rem, 11vw, 6rem);
+      font-weight: 900; line-height: 0.9; letter-spacing: -0.02em;
+      text-transform: uppercase; color: var(--text);
+      text-shadow: 0 16px 48px rgba(0, 0, 0, 0.8);
+    }
+    .splash-sub {
+      font-size: clamp(1rem, 2.2vw, 1.25rem);
+      font-weight: 500; color: var(--muted);
+    }
+    .splash-actions {
+      margin-top: 10px;
+      display: grid; justify-items: center; gap: 12px;
+    }
+    .splash-enter {
+      height: 54px; padding: 0 32px; border-radius: 16px;
+      font-size: 1.0625rem; font-weight: 700; letter-spacing: 0.01em;
+    }
+    .splash-mute {
+      font-size: 0.875rem; font-weight: 600; color: var(--muted);
+      padding: 6px 12px; border-radius: 8px;
+      transition: color 160ms ease, background 160ms ease;
+    }
+    .splash-mute:hover { color: var(--text); background: rgba(255, 255, 255, 0.08); }
     .btn-primary {
       background: var(--sun);
       color: var(--sun-ink);
@@ -1074,7 +1136,22 @@
     }
   </style>
 </head>
-<body>
+<body class="splash-open">
+  <div class="splash" id="splash" role="dialog" aria-modal="true" aria-labelledby="splash-title">
+    <img class="splash-bg" id="splash-bg" src="images/Official_Cover_Art_landscape.12.uu2irr.2_a.avif" alt="" />
+    <div class="splash-inner">
+      <h2 class="splash-title" id="splash-title">PS5 + GTA VI</h2>
+      <p class="splash-sub" id="splash-sub">Vice City Heist Board</p>
+      <div class="splash-actions">
+        <button type="button" class="btn btn-primary splash-enter" id="splash-enter">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="6 4 20 12 6 20 6 4"/></svg>
+          <span>Entrar a Vice City</span>
+        </button>
+        <button type="button" class="splash-mute" id="splash-mute">Entrar sin música</button>
+      </div>
+    </div>
+  </div>
+
   <canvas id="fx-canvas" aria-hidden="true"></canvas>
   <div class="backdrop" id="backdrop" aria-hidden="true"></div>
   <div class="grain" aria-hidden="true"></div>
@@ -2186,6 +2263,13 @@ ${lines.join("\n")}
           if (e.key === "ArrowRight") stepLightbox(1);
           return;
         }
+        if (document.body.classList.contains("splash-open")) {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            $("splash-enter")?.click();
+          }
+          return;
+        }
         if (depDialog.open || expDialog.open) return;
         if (e.target.matches("input, textarea")) return;
         if (e.key === "n" || e.key === "N") {
@@ -2231,6 +2315,26 @@ ${lines.join("\n")}
         });
       }
 
+      // ── Entry Splash Screen ───────────────────────
+      const splash = $("splash");
+      $("splash-title").textContent = G.title;
+      const crewNames = G.people.map((p) => p.name).join(" & ");
+      $("splash-sub").textContent = `${crewNames} · ${G.subtitle ?? "Vice City Heist Board"}`;
+      if (shots[0]?.src) $("splash-bg").src = shots[0].src;
+
+      let onSplashEnter = null;
+      const dismissSplash = (withMusic) => {
+        if (!splash || splash.classList.contains("leaving")) return;
+        splash.classList.add("leaving");
+        document.body.classList.remove("splash-open");
+        if (onSplashEnter) onSplashEnter(withMusic);
+        setTimeout(() => renderAll(), 180);
+        setTimeout(() => { splash.hidden = true; }, 700);
+      };
+
+      $("splash-enter").addEventListener("click", () => dismissSplash(true));
+      $("splash-mute").addEventListener("click", () => dismissSplash(false));
+
       // ── Initial render ────────────────────────────
       selectedMilestone = -1;
       renderAll();
@@ -2267,6 +2371,11 @@ ${lines.join("\n")}
             ytPlayer.unMute();
             ytPlayer.setVolume(45);
             ytPlayer.playVideo();
+            setTimeout(() => {
+              if (ytPlayer.getPlayerState?.() === YT.PlayerState.PLAYING && !ytPlayer.isMuted()) {
+                setRadioUI(true);
+              }
+            }, 250);
           } catch {}
         };
 
@@ -2276,6 +2385,16 @@ ${lines.join("\n")}
             try { ytPlayer.pauseVideo(); } catch {}
           }
           setRadioUI(false);
+        };
+
+        onSplashEnter = (withMusic) => {
+          if (withMusic) {
+            userPaused = false;
+            startRadio(true);
+          } else {
+            userPaused = true;
+            pauseRadio();
+          }
         };
 
         radioBtn.addEventListener("click", (e) => {
@@ -2288,14 +2407,6 @@ ${lines.join("\n")}
             startRadio(true);
           }
         });
-
-        // Browsers block unmuted autoplay until the first user gesture:
-        // tune in automatically on the first interaction unless the user paused it.
-        const unlockOnFirstGesture = () => {
-          if (!userPaused && !radioPlaying) startRadio(false);
-        };
-        window.addEventListener("pointerdown", unlockOnFirstGesture, { once: true });
-        window.addEventListener("keydown", unlockOnFirstGesture, { once: true });
 
         window.onYouTubeIframeAPIReady = () => {
           const playerVars = {
@@ -2312,8 +2423,8 @@ ${lines.join("\n")}
             playerVars.origin = location.origin;
           }
           ytPlayer = new YT.Player("yt-player", {
-            height: "1",
-            width: "1",
+            height: "113",
+            width: "200",
             videoId: ytId,
             playerVars,
             events: {
@@ -2322,8 +2433,11 @@ ${lines.join("\n")}
                 if (pendingPlay && !userPaused) startRadio(false);
               },
               onStateChange: (ev) => {
-                if (ev.data === YT.PlayerState.PLAYING) setRadioUI(true);
-                else if (ev.data === YT.PlayerState.PAUSED || ev.data === YT.PlayerState.ENDED) setRadioUI(false);
+                if (ev.data === YT.PlayerState.PLAYING) {
+                  setRadioUI(!ytPlayer.isMuted());
+                } else if (ev.data === YT.PlayerState.PAUSED || ev.data === YT.PlayerState.ENDED) {
+                  setRadioUI(false);
+                }
               },
               onError: () => {
                 ytErrored = true;

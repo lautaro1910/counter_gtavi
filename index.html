@@ -1,0 +1,2343 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="dark" />
+  <meta name="theme-color" content="#08070e" />
+  <title>PS5 + GTA VI · Heist Board</title>
+  <style>
+    /* ── Self-hosted fonts ─────────────────────────── */
+    @font-face {
+      font-family: "Barlow Condensed";
+      font-style: normal;
+      font-weight: 700;
+      font-display: swap;
+      src: url("fonts/barlow-condensed-700-latin-ext.woff2") format("woff2");
+      unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    }
+    @font-face {
+      font-family: "Barlow Condensed";
+      font-style: normal;
+      font-weight: 700;
+      font-display: swap;
+      src: url("fonts/barlow-condensed-700-latin.woff2") format("woff2");
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+    @font-face {
+      font-family: "Barlow Condensed";
+      font-style: normal;
+      font-weight: 800;
+      font-display: swap;
+      src: url("fonts/barlow-condensed-800-latin-ext.woff2") format("woff2");
+      unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    }
+    @font-face {
+      font-family: "Barlow Condensed";
+      font-style: normal;
+      font-weight: 800;
+      font-display: swap;
+      src: url("fonts/barlow-condensed-800-latin.woff2") format("woff2");
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+    @font-face {
+      font-family: "Barlow Condensed";
+      font-style: normal;
+      font-weight: 900;
+      font-display: swap;
+      src: url("fonts/barlow-condensed-900-latin-ext.woff2") format("woff2");
+      unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    }
+    @font-face {
+      font-family: "Barlow Condensed";
+      font-style: normal;
+      font-weight: 900;
+      font-display: swap;
+      src: url("fonts/barlow-condensed-900-latin.woff2") format("woff2");
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+    @font-face {
+      font-family: "Barlow";
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url("fonts/barlow-400-latin-ext.woff2") format("woff2");
+      unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    }
+    @font-face {
+      font-family: "Barlow";
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url("fonts/barlow-400-latin.woff2") format("woff2");
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+    @font-face {
+      font-family: "Barlow";
+      font-style: normal;
+      font-weight: 500;
+      font-display: swap;
+      src: url("fonts/barlow-500-latin-ext.woff2") format("woff2");
+      unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    }
+    @font-face {
+      font-family: "Barlow";
+      font-style: normal;
+      font-weight: 500;
+      font-display: swap;
+      src: url("fonts/barlow-500-latin.woff2") format("woff2");
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+    @font-face {
+      font-family: "Barlow";
+      font-style: normal;
+      font-weight: 600;
+      font-display: swap;
+      src: url("fonts/barlow-600-latin-ext.woff2") format("woff2");
+      unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    }
+    @font-face {
+      font-family: "Barlow";
+      font-style: normal;
+      font-weight: 600;
+      font-display: swap;
+      src: url("fonts/barlow-600-latin.woff2") format("woff2");
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+    @font-face {
+      font-family: "Barlow";
+      font-style: normal;
+      font-weight: 700;
+      font-display: swap;
+      src: url("fonts/barlow-700-latin-ext.woff2") format("woff2");
+      unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    }
+    @font-face {
+      font-family: "Barlow";
+      font-style: normal;
+      font-weight: 700;
+      font-display: swap;
+      src: url("fonts/barlow-700-latin.woff2") format("woff2");
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+    @font-face {
+      font-family: "JetBrains Mono";
+      font-style: normal;
+      font-weight: 500 700;
+      font-display: swap;
+      src: url("fonts/jetbrains-mono-latin-ext.woff2") format("woff2");
+      unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    }
+    @font-face {
+      font-family: "JetBrains Mono";
+      font-style: normal;
+      font-weight: 500 700;
+      font-display: swap;
+      src: url("fonts/jetbrains-mono-latin.woff2") format("woff2");
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+
+    @property --angle { syntax: "<angle>"; inherits: false; initial-value: 0deg; }
+
+    :root {
+      --bg: #08070e;
+      --surface-1: #110f1b;
+      --surface-2: #191627;
+      --surface-3: #221e34;
+      --border: rgba(247, 245, 252, 0.11);
+      --border-strong: rgba(247, 245, 252, 0.22);
+      --text: #f7f5fc;
+      --muted: #bcb5cf;
+      --faint: #a199b8;
+      --sun: #ffb26b;
+      --sun-ink: #120c05;
+      --c1: #3ee6d2;
+      --c2: #ff5fa2;
+      --danger: #ff6b7a;
+      --radius: 22px;
+      --radius-lg: 30px;
+      --ease: cubic-bezier(0.16, 1, 0.3, 1);
+      --font-display: "Barlow Condensed", sans-serif;
+      --font-sans: "Barlow", sans-serif;
+      --font-mono: "JetBrains Mono", monospace;
+      --mx: 50%;
+      --my: 0%;
+    }
+
+    /* ── Browser surface theming ───────────────────── */
+    ::selection { background: color-mix(in srgb, var(--c2) 38%, #110f1b); color: #fff; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html {
+      min-height: 100%;
+      background: var(--bg);
+      scroll-behavior: smooth;
+      scrollbar-color: rgba(255, 178, 107, 0.35) var(--bg);
+      scrollbar-width: thin;
+    }
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: rgba(255, 178, 107, 0.3); border-radius: 999px; }
+    ::-webkit-scrollbar-thumb:hover { background: rgba(255, 178, 107, 0.55); }
+
+    body {
+      min-height: 100%;
+      font: 400 100%/1.55 var(--font-sans);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      font-variant-numeric: tabular-nums;
+      overflow-x: hidden;
+      padding-bottom: max(7vh, env(safe-area-inset-bottom));
+      caret-color: var(--sun);
+    }
+
+    button, input { font: inherit; color: inherit; }
+    button { background: none; border: 0; cursor: pointer; }
+    [hidden] { display: none !important; }
+    :focus-visible {
+      outline: 2px solid var(--sun);
+      outline-offset: 3px;
+    }
+
+    /* ── FX Canvas (Celebration particles) ─────────── */
+    #fx-canvas {
+      position: fixed; inset: 0; z-index: 90;
+      width: 100%; height: 100%;
+      pointer-events: none;
+    }
+
+    /* ── Cinematic backdrop ────────────────────────── */
+    .backdrop {
+      position: fixed; inset: 0; z-index: -2; overflow: hidden;
+      background: var(--bg);
+    }
+    .backdrop img {
+      position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+      opacity: 0; transition: opacity 2200ms ease;
+      filter: saturate(1.12) contrast(1.06);
+      animation: kenburns 20s ease-out forwards;
+    }
+    .backdrop img.on { opacity: 0.42; }
+    @keyframes kenburns {
+      from { transform: scale(1.03); }
+      to   { transform: scale(1.12) translate3d(-1%, -0.8%, 0); }
+    }
+    .backdrop::after {
+      content: ""; position: absolute; inset: 0;
+      background:
+        radial-gradient(120% 70% at 50% 0%, transparent 25%, rgba(8,7,14,0.68) 78%),
+        linear-gradient(180deg, rgba(8,7,14,0.35) 0%, rgba(8,7,14,0.72) 42%, var(--bg) 78%);
+    }
+    .grain {
+      position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0.055; mix-blend-mode: overlay;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    /* ── Top Command Bar ───────────────────────────── */
+    .topbar {
+      position: sticky; top: 0; z-index: 40;
+      backdrop-filter: blur(18px) saturate(140%);
+      -webkit-backdrop-filter: blur(18px) saturate(140%);
+      background: rgba(8, 7, 14, 0.78);
+      border-bottom: 1px solid var(--border);
+    }
+    .topbar-inner {
+      max-width: 1060px; margin: 0 auto;
+      padding: 12px 20px;
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    }
+    .brand-cluster {
+      display: flex; align-items: center; gap: 12px; min-width: 0;
+    }
+    .status-dot {
+      width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0;
+      background: var(--c1);
+    }
+    .brand-name {
+      font-family: var(--font-display);
+      font-weight: 800; font-size: 1.25rem; letter-spacing: 0.03em; text-transform: uppercase;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .brand-stat {
+      font-family: var(--font-mono);
+      font-size: 0.75rem; font-weight: 600;
+      color: var(--sun);
+      padding: 3px 9px; border-radius: 999px;
+      background: rgba(255, 178, 107, 0.12);
+      border: 1px solid rgba(255, 178, 107, 0.28);
+      white-space: nowrap;
+    }
+
+    .top-actions { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      height: 40px; padding: 0 16px; border-radius: 12px;
+      font-size: 0.875rem; font-weight: 600;
+      transition: transform 120ms ease-out, background-color 180ms ease, border-color 180ms ease, color 180ms ease;
+      white-space: nowrap;
+    }
+    .btn:active { transform: scale(0.96); }
+    .btn-ghost {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+    .btn-ghost:hover { background: var(--surface-3); border-color: var(--border-strong); }
+    .btn-icon { width: 40px; padding: 0; }
+    .btn-icon[aria-pressed="true"] {
+      border-color: rgba(62, 230, 210, 0.45);
+      color: var(--c1);
+      background: rgba(62, 230, 210, 0.1);
+    }
+    .radio-btn {
+      gap: 9px;
+      padding: 0 13px;
+    }
+    .radio-btn[aria-pressed="true"] {
+      border-color: rgba(255, 95, 162, 0.55);
+      background: rgba(255, 95, 162, 0.14);
+      color: var(--text);
+    }
+    .eq-bars {
+      display: inline-flex; align-items: flex-end; gap: 2px; height: 14px; width: 13px;
+    }
+    .eq-bars i {
+      display: block; width: 3px; height: 6px; border-radius: 2px;
+      background: currentColor;
+      transition: height 180ms ease;
+    }
+    .eq-bars i:nth-child(2) { height: 12px; }
+    .eq-bars i:nth-child(3) { height: 8px; }
+    .radio-btn[aria-pressed="true"] .eq-bars i {
+      background: var(--c2);
+      animation: eq-bounce 0.85s ease-in-out infinite alternate;
+    }
+    .radio-btn[aria-pressed="true"] .eq-bars i:nth-child(2) { animation-delay: -0.3s; }
+    .radio-btn[aria-pressed="true"] .eq-bars i:nth-child(3) { animation-delay: -0.6s; }
+    @keyframes eq-bounce {
+      0% { height: 3px; }
+      100% { height: 13px; }
+    }
+    .yt-host {
+      position: fixed; width: 1px; height: 1px; opacity: 0.001;
+      pointer-events: none; bottom: 0; left: 0; overflow: hidden;
+    }
+    .btn-primary {
+      background: var(--sun);
+      color: var(--sun-ink);
+      font-weight: 700;
+      box-shadow: 0 8px 20px -6px rgba(0, 0, 0, 0.7);
+    }
+    .btn-primary:hover { background: #ffc389; }
+    .btn-kbd {
+      font-family: var(--font-mono);
+      font-size: 0.6875rem; font-weight: 700;
+      padding: 1px 5px; border-radius: 5px;
+      background: rgba(18, 12, 5, 0.16);
+      color: var(--sun-ink);
+    }
+    .sync-badge {
+      display: inline-grid; place-items: center;
+      min-width: 18px; height: 18px; padding: 0 5px;
+      border-radius: 999px;
+      background: var(--c2); color: #08070e;
+      font-family: var(--font-mono); font-size: 0.6875rem; font-weight: 700;
+    }
+    .sync-badge[hidden] { display: none; }
+
+    /* ── Main container ────────────────────────────── */
+    main {
+      max-width: 1060px; margin: 0 auto;
+      padding: 0 20px;
+      display: grid; grid-template-columns: minmax(0, 1fr);
+      gap: 36px;
+    }
+
+    /* ── Header ────────────────────────────────────── */
+    header {
+      padding: max(6vh, 36px) 0 4px;
+      display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px;
+    }
+    h1 {
+      font-family: var(--font-display);
+      font-size: clamp(3.25rem, 8.5vw, 5.75rem);
+      font-weight: 900; line-height: 0.9; letter-spacing: -0.02em;
+      text-transform: uppercase;
+      color: var(--text);
+      text-shadow: 0 12px 36px rgba(0, 0, 0, 0.7);
+    }
+    .subtitle {
+      margin-top: 10px;
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      font-weight: 500; color: var(--muted);
+      max-width: 56ch;
+    }
+    .header-meta {
+      display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+    }
+    .filter-pill {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 8px 14px; border-radius: 999px;
+      background: var(--surface-2);
+      border: 1px solid var(--border-strong);
+      font-size: 0.8125rem; font-weight: 600;
+      color: var(--text);
+      transition: background 180ms ease, transform 120ms ease;
+    }
+    .filter-pill:hover { background: var(--surface-3); }
+    .filter-pill .f-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--fc, var(--c1)); }
+    .filter-pill[hidden] { display: none; }
+
+    /* ── Primary Vault Deck (3D Tilt Stage) ────────── */
+    .stage { perspective: 1400px; }
+    .vault-card {
+      position: relative;
+      border-radius: var(--radius-lg);
+      padding: clamp(28px, 4.5vw, 46px);
+      background:
+        radial-gradient(90% 80% at var(--mx) var(--my), rgba(255, 178, 107, 0.06), transparent 55%),
+        linear-gradient(155deg, #161325 0%, #0e0c18 100%);
+      border: 1px solid var(--border);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.12),
+        0 32px 72px -24px rgba(0, 0, 0, 0.88);
+      transform-style: preserve-3d;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: center;
+      gap: clamp(24px, 4.5vw, 48px);
+    }
+
+    .ring-wrap {
+      position: relative;
+      width: clamp(190px, 26vw, 250px);
+      aspect-ratio: 1;
+      transform: translateZ(18px);
+    }
+    .ring { width: 100%; height: 100%; transform: rotate(-90deg); overflow: visible; }
+    .ring circle { fill: none; stroke-width: 18; }
+    .ring .track { stroke: rgba(255, 255, 255, 0.07); }
+    .ring .arc {
+      stroke-linecap: round;
+      transition: opacity 300ms ease, stroke-width 250ms ease;
+      cursor: pointer;
+    }
+    .ring .arc.dim { opacity: 0.22; }
+    .ring .arc.active { stroke-width: 22; }
+
+    .ring-center {
+      position: absolute; inset: 0;
+      display: grid; place-content: center; text-align: center;
+      pointer-events: none;
+    }
+    .pct {
+      font-family: var(--font-display);
+      font-size: clamp(2.75rem, 5.5vw, 3.75rem);
+      font-weight: 900; line-height: 0.95; letter-spacing: -0.02em;
+      color: var(--text);
+    }
+    .pct small { font-size: 0.48em; font-weight: 700; color: var(--muted); margin-left: 2px; }
+    .pct-label {
+      margin-top: 6px;
+      font-family: var(--font-mono);
+      font-size: 0.6875rem; font-weight: 600;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .vault-main { transform: translateZ(12px); min-width: 0; }
+    .vault-label {
+      font-family: var(--font-mono);
+      font-size: 0.75rem; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--sun);
+    }
+
+    /* Rolling mechanical odometer */
+    .odometer {
+      margin: 8px 0 18px;
+      font-family: var(--font-display);
+      font-size: clamp(3.25rem, 8.5vw, 5.75rem);
+      font-weight: 900; line-height: 1.08; letter-spacing: -0.02em;
+      color: var(--text);
+      display: inline-flex; align-items: baseline; flex-wrap: nowrap;
+      white-space: nowrap;
+    }
+    .odo-digit {
+      display: inline-block;
+      height: 1.08em; overflow: hidden;
+      vertical-align: bottom;
+    }
+    .odo-reel {
+      display: flex; flex-direction: column;
+      transition: transform 950ms var(--ease);
+      will-change: transform;
+    }
+    .odo-reel span {
+      display: block; height: 1.08em; line-height: 1.08em; text-align: center;
+    }
+    .odo-static { display: inline-block; line-height: 1.08em; }
+    .done .odometer { color: var(--c1); }
+
+    /* Crew tug-of-war split bar */
+    .split-wrap { margin-bottom: 20px; }
+    .split-head {
+      display: flex; justify-content: space-between; align-items: center; gap: 12px;
+      font-size: 0.8125rem; color: var(--muted); margin-bottom: 8px;
+    }
+    .split-head b { color: var(--text); font-weight: 700; }
+    .split-bar {
+      height: 10px; border-radius: 999px;
+      background: rgba(255, 255, 255, 0.07);
+      overflow: hidden;
+      display: flex; gap: 2px;
+    }
+    .split-seg {
+      height: 100%; border-radius: 999px;
+      transition: width 900ms var(--ease), opacity 250ms ease;
+    }
+    .split-seg.dim { opacity: 0.24; }
+
+    /* Telemetry grid */
+    .telemetry {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .stat-cell {
+      padding: 12px 14px; border-radius: 14px;
+      background: rgba(255, 255, 255, 0.035);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+    }
+    .stat-k {
+      font-family: var(--font-mono);
+      font-size: 0.6875rem; font-weight: 600;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--faint);
+    }
+    .stat-v {
+      margin-top: 4px;
+      font-family: var(--font-mono);
+      font-size: 1rem; font-weight: 700; color: var(--text);
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+
+    /* ── Section headers (No eyebrows!) ────────────── */
+    .sec-head {
+      display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between;
+      gap: 12px; margin-bottom: 16px;
+    }
+    .sec-head h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.75rem, 3.8vw, 2.5rem);
+      font-weight: 800; line-height: 1; letter-spacing: -0.015em;
+      text-transform: uppercase;
+      color: var(--text);
+    }
+    .sec-head p {
+      color: var(--muted); font-size: 0.9375rem; margin-top: 4px;
+    }
+
+    /* ── Interactive Leonida Mission Map ───────────── */
+    .map-board {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: var(--surface-1);
+      border: 1px solid var(--border);
+      box-shadow: 0 28px 64px -24px rgba(0, 0, 0, 0.85);
+      display: grid;
+      grid-template-columns: 1.55fr 1fr;
+      min-height: 360px;
+    }
+    .map-canvas {
+      position: relative; min-height: 340px; overflow: hidden;
+      background: #0b0a14;
+    }
+    .map-canvas img {
+      position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+      opacity: 0.58; filter: saturate(1.1) contrast(1.08);
+      transition: transform 700ms var(--ease);
+    }
+    .map-canvas::after {
+      content: ""; position: absolute; inset: 0; pointer-events: none;
+      background:
+        radial-gradient(circle at 50% 50%, transparent 35%, rgba(8, 7, 14, 0.65) 100%),
+        linear-gradient(90deg, transparent 70%, var(--surface-1) 100%);
+    }
+    .map-route {
+      position: absolute; inset: 0; width: 100%; height: 100%; z-index: 2; pointer-events: none;
+    }
+    .route-bg {
+      fill: none; stroke: rgba(255, 255, 255, 0.22);
+      stroke-width: 2.5; stroke-dasharray: 6 6;
+    }
+    .route-fill {
+      fill: none; stroke: var(--sun); stroke-width: 3.5;
+      stroke-linecap: round;
+      transition: stroke-dashoffset 1100ms var(--ease);
+    }
+
+    .map-pin {
+      position: absolute; z-index: 3;
+      transform: translate(-50%, -50%);
+      display: flex; align-items: center; gap: 8px;
+      padding: 6px 11px 6px 7px; border-radius: 999px;
+      background: rgba(14, 12, 24, 0.92);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 10px 24px -6px rgba(0, 0, 0, 0.9);
+      transition: transform 200ms var(--ease), border-color 200ms ease, background 200ms ease;
+    }
+    .map-pin:hover, .map-pin[aria-pressed="true"] {
+      transform: translate(-50%, -50%) scale(1.08);
+      border-color: var(--sun);
+      background: #1d182f;
+      z-index: 5;
+    }
+    .pin-dot {
+      width: 14px; height: 14px; border-radius: 50%; flex-shrink: 0;
+      border: 2px solid rgba(255, 255, 255, 0.4);
+      background: #231f35;
+      display: grid; place-items: center;
+    }
+    .map-pin.unlocked .pin-dot {
+      background: var(--c1); border-color: #fff;
+    }
+    .map-pin.next .pin-dot {
+      background: var(--sun); border-color: #fff;
+    }
+    .pin-tag {
+      font-family: var(--font-mono);
+      font-size: 0.75rem; font-weight: 700; color: var(--text);
+      white-space: nowrap;
+    }
+
+    .map-intel {
+      position: relative; z-index: 4;
+      padding: 28px;
+      background: var(--surface-1);
+      border-left: 1px solid var(--border);
+      display: flex; flex-direction: column; justify-content: space-between; gap: 20px;
+    }
+    .intel-status {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
+      padding: 5px 10px; border-radius: 8px; width: fit-content;
+    }
+    .intel-status.unlocked { background: rgba(62, 230, 210, 0.14); color: var(--c1); }
+    .intel-status.next { background: rgba(255, 178, 107, 0.16); color: var(--sun); }
+    .intel-status.locked { background: rgba(255, 255, 255, 0.07); color: var(--muted); }
+
+    .intel-title {
+      margin-top: 12px;
+      font-family: var(--font-display);
+      font-size: 2rem; font-weight: 800; line-height: 1; text-transform: uppercase;
+    }
+    .intel-desc { margin-top: 8px; color: var(--muted); font-size: 0.9375rem; }
+    .intel-metric {
+      margin-top: 16px;
+      font-family: var(--font-mono);
+      font-size: 0.875rem; color: var(--text);
+      padding: 12px 14px; border-radius: 12px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+    }
+    .intel-metric b { color: var(--sun); }
+
+    .milestone-tabs {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;
+    }
+    .m-tab {
+      padding: 8px 6px; border-radius: 10px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700;
+      color: var(--muted); text-align: center;
+      transition: background 180ms ease, border-color 180ms ease, color 180ms ease;
+    }
+    .m-tab.unlocked { color: var(--c1); }
+    .m-tab[aria-pressed="true"] {
+      background: var(--surface-3);
+      border-color: var(--sun);
+      color: var(--text);
+    }
+
+    /* ── Crew Roster (Interactive Filter Cards) ────── */
+    .people {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .person {
+      position: relative; overflow: hidden; isolation: isolate;
+      min-height: 280px; padding: 26px;
+      border-radius: var(--radius);
+      background: var(--surface-1);
+      border: 1px solid color-mix(in srgb, var(--pc) 32%, var(--border));
+      box-shadow: 0 24px 50px -24px rgba(0, 0, 0, 0.85);
+      display: flex; flex-direction: column; justify-content: space-between;
+      text-align: left; width: 100%;
+      transition: transform 240ms var(--ease), border-color 240ms ease, opacity 240ms ease;
+    }
+    .person:hover { transform: translateY(-4px); border-color: var(--pc); }
+    .person.selected {
+      border-color: var(--pc);
+      box-shadow: 0 0 0 2px color-mix(in srgb, var(--pc) 45%, transparent), 0 28px 60px -20px rgba(0, 0, 0, 0.9);
+    }
+    .person.dimmed { opacity: 0.45; }
+    .person .bg {
+      position: absolute; inset: 0; z-index: -2;
+      width: 100%; height: 100%; object-fit: cover;
+      transform: scale(1.03); transition: transform 900ms var(--ease);
+    }
+    .person:hover .bg { transform: scale(1.09); }
+    .person::before {
+      content: ""; position: absolute; inset: 0; z-index: -1;
+      background:
+        linear-gradient(180deg, rgba(8,7,14,0.68) 0%, rgba(8,7,14,0.22) 38%, rgba(8,7,14,0.88) 72%, rgba(8,7,14,0.97) 100%),
+        linear-gradient(110deg, color-mix(in srgb, var(--pc) 18%, transparent), transparent 58%);
+    }
+    .person-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .person-head { display: flex; align-items: center; gap: 12px; }
+    .avatar {
+      width: 42px; height: 42px; border-radius: 50%;
+      display: grid; place-items: center;
+      font-family: var(--font-display); font-weight: 900; font-size: 1.35rem;
+      color: #08070e; background: var(--pc);
+      box-shadow: 0 6px 16px -4px rgba(0, 0, 0, 0.75);
+    }
+    .person-name { font-weight: 700; font-size: 1.125rem; letter-spacing: -0.01em; }
+    .person-count { font-family: var(--font-mono); font-size: 0.75rem; color: var(--muted); }
+    .filter-cue {
+      font-family: var(--font-mono); font-size: 0.6875rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.08em;
+      padding: 5px 10px; border-radius: 999px;
+      background: rgba(8, 7, 14, 0.72);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      color: var(--muted);
+    }
+    .person.selected .filter-cue { background: var(--pc); color: #08070e; border-color: var(--pc); }
+
+    .person-amount {
+      font-family: var(--font-display);
+      font-size: 2.75rem; font-weight: 900; line-height: 0.95; letter-spacing: -0.01em;
+    }
+    .person-share { margin-top: 6px; font-size: 0.875rem; color: var(--muted); }
+    .bar { margin-top: 14px; height: 7px; border-radius: 999px; background: rgba(255, 255, 255, 0.1); overflow: hidden; }
+    .bar i {
+      display: block; height: 100%; border-radius: inherit; background: var(--pc);
+      transform-origin: left; transform: scaleX(0);
+      transition: transform 1100ms var(--ease);
+    }
+
+    /* ── What-If Pace Simulator ────────────────────── */
+    .simulator {
+      border-radius: var(--radius-lg);
+      padding: clamp(22px, 4vw, 34px);
+      background: var(--surface-1);
+      border: 1px solid var(--border);
+      box-shadow: 0 24px 56px -24px rgba(0, 0, 0, 0.8);
+      display: grid;
+      grid-template-columns: 1.25fr 1fr;
+      gap: 28px;
+      align-items: center;
+    }
+    .sim-controls label {
+      display: flex; justify-content: space-between; align-items: baseline; gap: 12px;
+      font-weight: 600; font-size: 0.9375rem; color: var(--muted);
+    }
+    .sim-rate-val {
+      font-family: var(--font-display);
+      font-size: 2.25rem; font-weight: 900; color: var(--sun); line-height: 1;
+    }
+    .sim-slider {
+      -webkit-appearance: none; appearance: none;
+      width: 100%; height: 8px; border-radius: 999px;
+      background: var(--surface-3);
+      margin: 18px 0 16px;
+      cursor: pointer;
+    }
+    .sim-slider::-webkit-slider-thumb {
+      -webkit-appearance: none; appearance: none;
+      width: 24px; height: 24px; border-radius: 50%;
+      background: var(--sun); border: 3px solid #08070e;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
+      transition: transform 120ms ease;
+    }
+    .sim-slider::-webkit-slider-thumb:hover { transform: scale(1.12); }
+    .sim-slider::-moz-range-thumb {
+      width: 24px; height: 24px; border-radius: 50%;
+      background: var(--sun); border: 3px solid #08070e;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
+    }
+    .preset-row { display: flex; flex-wrap: wrap; gap: 8px; }
+    .preset-chip {
+      padding: 6px 12px; border-radius: 10px;
+      font-family: var(--font-mono); font-size: 0.75rem; font-weight: 600;
+      background: var(--surface-2); border: 1px solid var(--border);
+      color: var(--muted);
+      transition: background 150ms ease, color 150ms ease, border-color 150ms ease;
+    }
+    .preset-chip:hover, .preset-chip.active {
+      background: rgba(255, 178, 107, 0.14);
+      border-color: rgba(255, 178, 107, 0.45);
+      color: var(--sun);
+    }
+
+    .sim-output {
+      padding: 22px; border-radius: 18px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      display: grid; gap: 14px;
+    }
+    .sim-date-label {
+      font-family: var(--font-mono); font-size: 0.75rem; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--faint);
+    }
+    .sim-date {
+      font-family: var(--font-display);
+      font-size: 2.5rem; font-weight: 900; line-height: 1; text-transform: uppercase;
+      color: var(--text);
+    }
+    .sim-sub { font-size: 0.875rem; color: var(--muted); }
+    .sim-sub b { color: var(--c1); }
+
+    /* ── Gallery (3D Coverflow) ────────────────────── */
+    .gallery { margin-inline: calc(50% - 50vw); padding: 8px 0; }
+    .g-head {
+      max-width: 1060px; margin: 0 auto 4px; padding: 0 20px;
+      display: flex; align-items: flex-end; justify-content: space-between; gap: 16px;
+    }
+    .g-nav { display: flex; gap: 8px; flex-shrink: 0; }
+    .g-nav button {
+      width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center;
+      background: var(--surface-2); border: 1px solid var(--border);
+      transition: transform 120ms ease-out, background 180ms ease, border-color 180ms ease;
+    }
+    .g-nav button:hover { background: var(--surface-3); border-color: var(--border-strong); }
+    .g-nav button:active { transform: scale(0.92); }
+
+    .strip {
+      --tw: clamp(270px, 54vw, 540px);
+      display: flex; gap: 18px;
+      overflow-x: auto; overscroll-behavior-x: contain;
+      scroll-snap-type: x mandatory; scrollbar-width: none;
+      padding: 32px calc((100% - var(--tw)) / 2) 40px;
+      perspective: 1200px;
+    }
+    .strip::-webkit-scrollbar { display: none; }
+
+    .tile {
+      position: relative; flex: 0 0 var(--tw); aspect-ratio: 16 / 10;
+      border-radius: 20px; scroll-snap-align: center;
+      background: #110f1b; isolation: isolate;
+      box-shadow: 0 32px 60px -24px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+      text-align: left;
+    }
+    .tile .frame { position: absolute; inset: 0; border-radius: inherit; overflow: hidden; z-index: -1; }
+    .tile img { width: 100%; height: 100%; object-fit: cover; display: block; transition: filter 280ms ease; }
+    .tile:hover img { filter: brightness(1.08) saturate(1.1); }
+    .tile .shade {
+      position: absolute; inset: 0; border-radius: inherit;
+      background: linear-gradient(180deg, transparent 45%, rgba(8, 7, 14, 0.85));
+    }
+    .tile .cap { position: absolute; left: 20px; right: 20px; bottom: 16px; }
+    .tile .cap .n {
+      font-family: var(--font-mono); font-size: 0.6875rem; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase; color: var(--sun);
+    }
+    .tile .cap .t {
+      font-family: var(--font-display); font-size: clamp(1.25rem, 2.5vw, 1.65rem);
+      font-weight: 800; text-transform: uppercase; letter-spacing: 0.01em;
+    }
+    .tile::after {
+      content: ""; position: absolute; inset: -2px; border-radius: 22px; padding: 2px; pointer-events: none;
+      background: conic-gradient(from var(--angle), transparent 0 55%, var(--c1), var(--sun), var(--c2), transparent 95%);
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor; mask-composite: exclude;
+      animation: orbit 4s linear infinite;
+      opacity: 0; transition: opacity 350ms ease;
+    }
+    .tile.current::after { opacity: 1; }
+    @keyframes orbit { to { --angle: 360deg; } }
+
+    @supports (animation-timeline: view()) {
+      .tile {
+        animation: coverflow linear both;
+        animation-timeline: view(inline);
+      }
+      @keyframes coverflow {
+        0% { transform: rotateY(34deg) scale(0.84); opacity: 0.45; }
+        42%, 58% { transform: none; opacity: 1; }
+        100% { transform: rotateY(-34deg) scale(0.84); opacity: 0.45; }
+      }
+    }
+
+    /* ── Deposit Ledger ────────────────────────────── */
+    .ledger {
+      border-radius: var(--radius-lg);
+      padding: clamp(22px, 4vw, 32px);
+      background: var(--surface-1);
+      border: 1px solid var(--border);
+      box-shadow: 0 24px 56px -24px rgba(0, 0, 0, 0.8);
+    }
+    .ledger ol { list-style: none; }
+    .ledger li {
+      display: grid;
+      grid-template-columns: 12px 1fr auto auto;
+      align-items: center; gap: 14px;
+      padding: 15px 4px;
+      border-top: 1px solid rgba(255, 255, 255, 0.07);
+    }
+    .ledger li:first-child { border-top: 0; }
+    .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--pc); }
+    .h-main { font-weight: 600; font-size: 0.9375rem; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    .h-local {
+      font-family: var(--font-mono); font-size: 0.625rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.08em;
+      padding: 2px 6px; border-radius: 5px;
+      background: rgba(255, 178, 107, 0.16); color: var(--sun);
+    }
+    .h-sub { font-family: var(--font-mono); font-size: 0.75rem; color: var(--faint); margin-top: 2px; }
+    .h-amt { font-family: var(--font-mono); font-weight: 700; font-size: 1.0625rem; color: var(--text); }
+    .h-del {
+      width: 32px; height: 32px; border-radius: 8px;
+      display: grid; place-items: center;
+      color: var(--faint);
+      transition: background 150ms ease, color 150ms ease;
+    }
+    .h-del:hover { background: rgba(255, 107, 122, 0.14); color: var(--danger); }
+    .empty { color: var(--muted); padding: 18px 0; display: block !important; text-align: center; }
+
+    footer {
+      text-align: center; color: var(--faint); font-size: 0.8125rem;
+      padding-top: 8px;
+    }
+    footer code { font-family: var(--font-mono); color: var(--muted); }
+
+    /* ── Dialogs (Add Deposit, Export, Lightbox) ───── */
+    dialog {
+      margin: auto; padding: 0; border: 0; background: transparent; color: var(--text);
+      max-width: 94vw; max-height: 92vh; overflow: visible;
+    }
+    dialog::backdrop {
+      background: rgba(5, 4, 10, 0.84);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+
+    .sheet {
+      width: min(460px, 92vw);
+      border-radius: 26px;
+      padding: 28px;
+      background: var(--surface-1);
+      border: 1px solid var(--border-strong);
+      box-shadow: 0 40px 90px -20px rgba(0, 0, 0, 0.95);
+      display: grid; gap: 20px;
+    }
+    .sheet-head {
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    }
+    .sheet-head h3 {
+      font-family: var(--font-display);
+      font-size: 1.85rem; font-weight: 800; text-transform: uppercase; line-height: 1;
+    }
+    .close-btn {
+      width: 36px; height: 36px; border-radius: 10px;
+      display: grid; place-items: center;
+      background: var(--surface-2); border: 1px solid var(--border);
+      color: var(--muted);
+    }
+    .close-btn:hover { background: var(--surface-3); color: var(--text); }
+
+    .field { display: grid; gap: 8px; }
+    .field label {
+      font-family: var(--font-mono); font-size: 0.75rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted);
+    }
+    .crew-picker { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .crew-opt {
+      padding: 12px 14px; border-radius: 14px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      display: flex; align-items: center; gap: 10px;
+      font-weight: 700;
+      transition: border-color 160ms ease, background 160ms ease;
+    }
+    .crew-opt[aria-checked="true"] {
+      border-color: var(--pc);
+      background: color-mix(in srgb, var(--pc) 14%, var(--surface-2));
+    }
+    .crew-opt .mini-av {
+      width: 28px; height: 28px; border-radius: 50%;
+      display: grid; place-items: center;
+      background: var(--pc); color: #08070e;
+      font-family: var(--font-display); font-weight: 900; font-size: 1rem;
+    }
+
+    .text-input {
+      width: 100%; height: 46px; padding: 0 14px; border-radius: 12px;
+      background: var(--surface-2); border: 1px solid var(--border);
+      color: var(--text); font-size: 1rem;
+      transition: border-color 160ms ease;
+    }
+    .text-input:focus { outline: none; border-color: var(--sun); }
+    .amount-input {
+      font-family: var(--font-mono); font-size: 1.5rem; font-weight: 700; height: 54px;
+    }
+    .quick-amts { display: flex; flex-wrap: wrap; gap: 8px; }
+    .quick-btn {
+      padding: 6px 12px; border-radius: 10px;
+      font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700;
+      background: var(--surface-2); border: 1px solid var(--border);
+      color: var(--muted);
+    }
+    .quick-btn:hover { border-color: var(--sun); color: var(--sun); }
+
+    .export-code {
+      width: 100%; height: 220px; padding: 14px; border-radius: 14px;
+      background: #090810; border: 1px solid var(--border);
+      font-family: var(--font-mono); font-size: 0.75rem; line-height: 1.5;
+      color: var(--c1); resize: none;
+    }
+    .sheet-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+    .sheet-actions .btn { flex: 1; }
+
+    /* Lightbox */
+    #lightbox { width: min(92vw, 1280px); }
+    .lb-frame { position: relative; display: grid; place-items: center; }
+    #lightbox img {
+      display: block; max-width: 100%; max-height: 78vh;
+      object-fit: contain; border-radius: 18px;
+      box-shadow: 0 32px 80px rgba(0, 0, 0, 0.9);
+    }
+    .lb-bar {
+      margin-top: 16px;
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      padding: 12px 18px; border-radius: 16px;
+      background: rgba(17, 15, 27, 0.92);
+      border: 1px solid var(--border);
+    }
+    .lb-title {
+      font-family: var(--font-display); font-size: 1.35rem; font-weight: 800; text-transform: uppercase;
+    }
+    .lb-count { font-family: var(--font-mono); font-size: 0.8125rem; color: var(--muted); }
+    .lb-controls { display: flex; gap: 8px; }
+
+    ::view-transition-group(shot) { animation-duration: 420ms; animation-timing-function: var(--ease); }
+
+    /* ── Toast notification ────────────────────────── */
+    .toast {
+      position: fixed; left: 50%; bottom: max(24px, env(safe-area-inset-bottom));
+      z-index: 80;
+      transform: translate(-50%, 120%);
+      opacity: 0; pointer-events: none;
+      display: flex; align-items: center; gap: 14px;
+      padding: 12px 16px; border-radius: 16px;
+      background: var(--surface-2);
+      border: 1px solid var(--border-strong);
+      box-shadow: 0 24px 60px -12px rgba(0, 0, 0, 0.95);
+      transition: transform 360ms var(--ease), opacity 260ms ease;
+      max-width: 92vw;
+    }
+    .toast.show { transform: translate(-50%, 0); opacity: 1; pointer-events: auto; }
+    .toast-msg { font-size: 0.875rem; font-weight: 600; }
+    .toast-btn {
+      font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700;
+      text-transform: uppercase; color: var(--sun);
+      padding: 5px 10px; border-radius: 8px;
+      background: rgba(255, 178, 107, 0.14);
+    }
+    .toast-btn:hover { background: rgba(255, 178, 107, 0.24); }
+
+    /* ── Responsive ────────────────────────────────── */
+    @media (max-width: 860px) {
+      .vault-card { grid-template-columns: 1fr; justify-items: center; text-align: center; }
+      .telemetry { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .map-board { grid-template-columns: 1fr; }
+      .map-intel { border-left: 0; border-top: 1px solid var(--border); }
+      .simulator { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .brand-stat, .btn-kbd, .g-nav, .sync-label, .radio-label { display: none; }
+      .strip { --tw: 80vw; }
+      .topbar-inner { padding: 10px 14px; }
+      .btn { padding: 0 12px; font-size: 0.8125rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .backdrop img, .status-dot, .map-pin.next .pin-dot, .tile, .tile::after, .eq-bars i { animation: none !important; }
+      .odo-reel, .bar i, .route-fill, .person, .person .bg { transition: none !important; }
+      ::view-transition-group(*) { animation-duration: 0s; }
+    }
+  </style>
+</head>
+<body>
+  <canvas id="fx-canvas" aria-hidden="true"></canvas>
+  <div class="backdrop" id="backdrop" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- Top Command Bar -->
+  <nav class="topbar" aria-label="Controles principales">
+    <div class="topbar-inner">
+      <div class="brand-cluster">
+        <span class="status-dot" aria-hidden="true"></span>
+        <span class="brand-name" id="nav-title">PS5 + GTA VI</span>
+        <span class="brand-stat" id="nav-stat">0% COMPLETADO</span>
+      </div>
+      <div class="top-actions">
+        <button type="button" class="btn btn-ghost radio-btn" id="radio-toggle" aria-pressed="false" aria-label="Reproducir música de fondo" title="Reproducir Vice City Radio">
+          <span class="eq-bars" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span class="radio-label" id="radio-label">Radio</span>
+        </button>
+        <button type="button" class="btn btn-ghost btn-icon" id="sound-toggle" aria-pressed="false" aria-label="Activar efectos de sonido" title="Efectos de sonido (apagados)">
+          <svg id="sound-icon-off" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H2v6h4l5 4V5z"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+          <svg id="sound-icon-on" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" hidden><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+        </button>
+        <button type="button" class="btn btn-ghost" id="export-btn" title="Exportar data.js actualizado" aria-label="Guardar data.js">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          <span class="sync-label">Guardar data.js</span>
+          <span class="sync-badge" id="sync-badge" hidden>0</span>
+        </button>
+        <button type="button" class="btn btn-primary" id="add-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          <span>Nuevo depósito</span>
+          <span class="btn-kbd">N</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Header -->
+    <header>
+      <div>
+        <h1 id="title"></h1>
+        <p class="subtitle" id="subtitle"></p>
+      </div>
+      <div class="header-meta">
+        <button type="button" class="filter-pill" id="active-filter-pill" hidden>
+          <span class="f-dot" id="filter-dot"></span>
+          <span id="filter-text">Filtrado</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- Vault Command Deck -->
+    <section class="stage" aria-label="Progreso del ahorro">
+      <div class="vault-card" id="card">
+        <div class="ring-wrap">
+          <svg class="ring" viewBox="0 0 280 280" aria-hidden="true">
+            <circle class="track" cx="140" cy="140" r="120" />
+            <g id="arcs"></g>
+          </svg>
+          <div class="ring-center">
+            <div class="pct"><span id="pct">0</span><small>%</small></div>
+            <div class="pct-label" id="pct-label">juntado</div>
+          </div>
+        </div>
+
+        <div class="vault-main">
+          <div class="vault-label" id="hero-label">Falta juntar</div>
+          <div class="odometer" id="remaining" aria-live="polite">–</div>
+
+          <div class="split-wrap">
+            <div class="split-head" id="split-head"></div>
+            <div class="split-bar" id="split-bar"></div>
+          </div>
+
+          <div class="telemetry">
+            <div class="stat-cell">
+              <div class="stat-k">Ahorrado</div>
+              <div class="stat-v" id="saved">$0</div>
+            </div>
+            <div class="stat-cell">
+              <div class="stat-k">Meta</div>
+              <div class="stat-v" id="target">$0</div>
+            </div>
+            <div class="stat-cell">
+              <div class="stat-k">Ritmo semanal</div>
+              <div class="stat-v" id="pace">–</div>
+            </div>
+            <div class="stat-cell">
+              <div class="stat-k">Fecha estimada</div>
+              <div class="stat-v" id="eta">–</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Leonida Interactive Heist Map -->
+    <section aria-label="Hitos en el mapa de Leonida">
+      <div class="sec-head">
+        <div>
+          <h2>Leonida Heist Route</h2>
+          <p>Cada hito desbloquea una parte del setup camino a Vice City.</p>
+        </div>
+      </div>
+      <div class="map-board">
+        <div class="map-canvas" id="map-canvas">
+          <img id="map-img" src="images/Leonida_Map_Poster.08ir77j-.26ny.avif" alt="Mapa de Leonida" decoding="async" />
+          <svg class="map-route" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+            <path class="route-bg" id="route-bg" d="M 22 74 Q 40 58 54 48 T 82 22" />
+            <path class="route-fill" id="route-fill" d="M 22 74 Q 40 58 54 48 T 82 22" />
+          </svg>
+          <div id="map-pins"></div>
+        </div>
+        <div class="map-intel">
+          <div>
+            <span class="intel-status" id="intel-status">PRÓXIMO OBJETIVO</span>
+            <h3 class="intel-title" id="intel-title"></h3>
+            <p class="intel-desc" id="intel-desc"></p>
+            <div class="intel-metric" id="intel-metric"></div>
+          </div>
+          <div class="milestone-tabs" id="milestone-tabs" role="group" aria-label="Seleccionar hito"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Crew Roster -->
+    <section aria-label="Aportes del equipo">
+      <div class="sec-head">
+        <div>
+          <h2>The Crew</h2>
+          <p>Hacé clic en un integrante para filtrar sus depósitos y su parte de la bóveda.</p>
+        </div>
+      </div>
+      <div class="people" id="people"></div>
+    </section>
+
+    <!-- What-If Pace Simulator -->
+    <section aria-label="Simulador de ritmo de ahorro">
+      <div class="sec-head">
+        <div>
+          <h2>Simulador de Ritmo</h2>
+          <p>Probá qué tan rápido llegan a la meta si suben el ahorro semanal entre los dos.</p>
+        </div>
+      </div>
+      <div class="simulator">
+        <div class="sim-controls">
+          <label for="sim-slider">
+            <span>Ahorro semanal combinado</span>
+            <span class="sim-rate-val" id="sim-rate-val">$100/sem</span>
+          </label>
+          <input type="range" id="sim-slider" class="sim-slider" min="20" max="400" step="10" value="100" />
+          <div class="preset-row" id="sim-presets">
+            <button type="button" class="preset-chip" data-rate="50">$50/sem</button>
+            <button type="button" class="preset-chip" data-rate="100">$100/sem</button>
+            <button type="button" class="preset-chip" data-rate="150">$150/sem</button>
+            <button type="button" class="preset-chip" data-rate="250">$250/sem</button>
+          </div>
+        </div>
+        <div class="sim-output">
+          <div class="sim-date-label">Fecha estimada de desbloqueo</div>
+          <div class="sim-date" id="sim-date">–</div>
+          <div class="sim-sub" id="sim-sub"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Vice City Showcase Gallery -->
+    <section class="gallery" id="gallery" hidden aria-label="Galería de Vice City">
+      <div class="g-head sec-head">
+        <div>
+          <h2>Vice City Awaits</h2>
+          <p>Hacé clic en cualquier imagen para verla en grande. Usá las flechas del teclado para navegar.</p>
+        </div>
+        <div class="g-nav">
+          <button type="button" id="g-prev" aria-label="Foto anterior">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <button type="button" id="g-next" aria-label="Foto siguiente">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+          </button>
+        </div>
+      </div>
+      <div class="strip" id="strip"></div>
+    </section>
+
+    <!-- Deposit Ledger -->
+    <section aria-label="Historial de depósitos">
+      <div class="sec-head">
+        <div>
+          <h2 id="ledger-heading">Historial de Depósitos</h2>
+          <p id="ledger-sub">Registro cronológico de cada aporte a la bóveda.</p>
+        </div>
+      </div>
+      <div class="ledger">
+        <ol id="history"></ol>
+      </div>
+    </section>
+
+    <footer>
+      Los depósitos que cargues acá se guardan en tu navegador. Usá <code>Guardar data.js</code> para actualizar el archivo del proyecto.
+    </footer>
+  </main>
+
+  <!-- Add Deposit Dialog -->
+  <dialog id="deposit-dialog" aria-labelledby="dep-title">
+    <form class="sheet" id="deposit-form" method="dialog">
+      <div class="sheet-head">
+        <h3 id="dep-title">Nuevo Depósito</h3>
+        <button type="button" class="close-btn" id="dep-close" aria-label="Cerrar">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+
+      <div class="field">
+        <label>¿Quién depositó?</label>
+        <div class="crew-picker" id="crew-picker" role="radiogroup" aria-label="Integrante"></div>
+      </div>
+
+      <div class="field">
+        <label for="dep-amount">Monto (<span id="dep-currency">USD</span>)</label>
+        <input id="dep-amount" class="text-input amount-input" type="number" min="1" step="1" placeholder="100" required />
+        <div class="quick-amts">
+          <button type="button" class="quick-btn" data-amt="25">+$25</button>
+          <button type="button" class="quick-btn" data-amt="50">+$50</button>
+          <button type="button" class="quick-btn" data-amt="100">+$100</button>
+          <button type="button" class="quick-btn" data-amt="250">+$250</button>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="dep-note">Nota (opcional)</label>
+        <input id="dep-note" class="text-input" type="text" maxlength="60" placeholder="Venta de juegos, freelance, aguinaldo..." />
+      </div>
+
+      <div class="field">
+        <label for="dep-date">Fecha</label>
+        <input id="dep-date" class="text-input" type="date" required />
+      </div>
+
+      <div class="sheet-actions">
+        <button type="submit" class="btn btn-primary">Guardar en la bóveda</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- Sync / Export data.js Dialog -->
+  <dialog id="export-dialog" aria-labelledby="exp-title">
+    <div class="sheet">
+      <div class="sheet-head">
+        <h3 id="exp-title">Guardar data.js</h3>
+        <button type="button" class="close-btn" id="exp-close" aria-label="Cerrar">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <p style="font-size:0.875rem;color:var(--muted);">
+        Copiá o descargá este archivo y reemplazá <code>data.js</code> en tu carpeta del proyecto para guardar los depósitos locales de forma permanente.
+      </p>
+      <textarea id="export-code" class="export-code" readonly aria-label="Código generado de data.js"></textarea>
+      <div class="sheet-actions">
+        <button type="button" class="btn btn-primary" id="copy-export">Copiar código</button>
+        <button type="button" class="btn btn-ghost" id="download-export">Descargar</button>
+      </div>
+      <button type="button" class="btn btn-ghost" id="reset-local" style="color:var(--danger);border-color:rgba(255,107,122,0.25);">
+        Borrar depósitos locales del navegador
+      </button>
+    </div>
+  </dialog>
+
+  <!-- Lightbox Dialog -->
+  <dialog id="lightbox" aria-label="Visor de imágenes">
+    <div class="lb-frame">
+      <img src="images/Official_Cover_Art_landscape.12.uu2irr.2_a.avif" alt="Vista previa de Vice City" />
+    </div>
+    <div class="lb-bar">
+      <div>
+        <div class="lb-title" id="lb-title"></div>
+        <div class="lb-count" id="lb-count"></div>
+      </div>
+      <div class="lb-controls">
+        <button type="button" class="btn btn-ghost btn-icon" id="lb-prev" aria-label="Imagen anterior">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <button type="button" class="btn btn-ghost btn-icon" id="lb-next" aria-label="Imagen siguiente">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+        </button>
+        <button type="button" class="btn btn-ghost btn-icon" id="lb-close" aria-label="Cerrar visor">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Hidden YouTube background audio host -->
+  <div class="yt-host" aria-hidden="true"><div id="yt-player"></div></div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast" role="status" aria-live="polite">
+    <span class="toast-msg" id="toast-msg"></span>
+    <button type="button" class="toast-btn" id="toast-action" hidden></button>
+  </div>
+
+  <script src="data.js"></script>
+  <script>
+    (() => {
+      const G = window.GOAL;
+      const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const $ = (id) => document.getElementById(id);
+      const STORAGE_KEY = "counterclock_local_deposits_v1";
+
+      // ── State ─────────────────────────────────────
+      let localDeposits = [];
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (raw) localDeposits = JSON.parse(raw);
+      } catch {}
+
+      let activeFilter = null; // person.id or null
+      let selectedMilestone = 0;
+      let soundEnabled = false;
+      let audioCtx = null;
+      let lastToastAction = null;
+      let toastTimer = 0;
+
+      const fmt = new Intl.NumberFormat(G.locale, {
+        style: "currency", currency: G.currency, maximumFractionDigits: 0
+      });
+      const money = (n) => fmt.format(Math.round(n));
+
+      const MILESTONES = [
+        { id: "m1", pct: 0.45, x: 22, y: 74, label: "PS5 #1", title: "Comprar PS5 #1", desc: "Primera PlayStation 5 asegurada. Primer gran paso del plan cumplido." },
+        { id: "m2", pct: 0.90, x: 54, y: 48, label: "PS5 #2", title: "Comprar PS5 #2", desc: "Segunda PlayStation 5 adentro. Los dos con consola lista para arrancar." },
+        { id: "m3", pct: 1.00, x: 82, y: 22, label: "GTA VI", title: "Comprar GTA VI", desc: "Golpe completado. Las dos PS5 + GTA VI listos para entrar a Vice City." }
+      ];
+
+      // ── Theme tokens ──────────────────────────────
+      const root = document.documentElement.style;
+      root.setProperty("--c1", G.people[0]?.color ?? "#3ee6d2");
+      root.setProperty("--c2", G.people[1]?.color ?? "#ff5fa2");
+
+      $("title").textContent = G.title;
+      $("nav-title").textContent = G.title;
+      $("subtitle").textContent = G.subtitle ?? "";
+      $("dep-currency").textContent = G.currency;
+      if (G.mapImage) $("map-img").src = G.mapImage;
+
+      // ── Audio Synth (Opt-in Web Audio API) ────────
+      const playTone = (type) => {
+        if (!soundEnabled) return;
+        try {
+          audioCtx ??= new (window.AudioContext || window.webkitAudioContext)();
+          if (audioCtx.state === "suspended") audioCtx.resume();
+          const now = audioCtx.currentTime;
+          const notes = type === "deposit" ? [523.25, 659.25, 783.99, 1046.5] : [440, 554.37];
+          notes.forEach((freq, i) => {
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            osc.type = type === "deposit" ? "triangle" : "sine";
+            osc.frequency.setValueAtTime(freq, now + i * 0.055);
+            gain.gain.setValueAtTime(0.001, now + i * 0.055);
+            gain.gain.exponentialRampToValueAtTime(0.08, now + i * 0.055 + 0.02);
+            gain.gain.exponentialRampToValueAtTime(0.0001, now + i * 0.055 + 0.34);
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+            osc.start(now + i * 0.055);
+            osc.stop(now + i * 0.055 + 0.36);
+          });
+        } catch {}
+      };
+
+      $("sound-toggle").addEventListener("click", () => {
+        soundEnabled = !soundEnabled;
+        $("sound-toggle").setAttribute("aria-pressed", String(soundEnabled));
+        $("sound-toggle").title = soundEnabled ? "Efectos de sonido (activados)" : "Efectos de sonido (apagados)";
+        $("sound-icon-off").hidden = soundEnabled;
+        $("sound-icon-on").hidden = !soundEnabled;
+        if (soundEnabled) playTone("click");
+      });
+
+      // ── Toast helper ──────────────────────────────
+      const showToast = (msg, actionLabel, actionFn) => {
+        clearTimeout(toastTimer);
+        $("toast-msg").textContent = msg;
+        const btn = $("toast-action");
+        if (actionLabel && actionFn) {
+          btn.textContent = actionLabel;
+          btn.hidden = false;
+          lastToastAction = actionFn;
+        } else {
+          btn.hidden = true;
+          lastToastAction = null;
+        }
+        $("toast").classList.add("show");
+        toastTimer = setTimeout(() => $("toast").classList.remove("show"), 4800);
+      };
+      $("toast-action").addEventListener("click", () => {
+        if (lastToastAction) lastToastAction();
+        $("toast").classList.remove("show");
+      });
+
+      // ── Canvas 2D Celebration Particles ───────────
+      const fxCanvas = $("fx-canvas");
+      const fxCtx = fxCanvas.getContext("2d");
+      let particles = [];
+      let fxRaf = 0;
+
+      const resizeFx = () => {
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        fxCanvas.width = window.innerWidth * dpr;
+        fxCanvas.height = window.innerHeight * dpr;
+        fxCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      };
+      window.addEventListener("resize", resizeFx, { passive: true });
+      resizeFx();
+
+      const burstParticles = (color) => {
+        if (reduce) return;
+        const palette = [color || "#3ee6d2", "#ffb26b", "#ff5fa2", "#ffffff"];
+        const cx = window.innerWidth / 2;
+        const cy = window.innerHeight * 0.36;
+        for (let i = 0; i < 64; i++) {
+          const angle = Math.random() * Math.PI * 2;
+          const speed = 4 + Math.random() * 11;
+          particles.push({
+            x: cx, y: cy,
+            vx: Math.cos(angle) * speed,
+            vy: Math.sin(angle) * speed - 4,
+            size: 4 + Math.random() * 5,
+            color: palette[i % palette.length],
+            rot: Math.random() * Math.PI,
+            vrot: (Math.random() - 0.5) * 0.25,
+            life: 1
+          });
+        }
+        if (!fxRaf) tickFx();
+      };
+
+      const tickFx = () => {
+        fxCtx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+        particles = particles.filter((p) => p.life > 0.02);
+        for (const p of particles) {
+          p.x += p.vx;
+          p.y += p.vy;
+          p.vy += 0.28;
+          p.vx *= 0.985;
+          p.rot += p.vrot;
+          p.life *= 0.968;
+          fxCtx.save();
+          fxCtx.globalAlpha = p.life;
+          fxCtx.translate(p.x, p.y);
+          fxCtx.rotate(p.rot);
+          fxCtx.fillStyle = p.color;
+          fxCtx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size * 0.6);
+          fxCtx.restore();
+        }
+        fxRaf = particles.length ? requestAnimationFrame(tickFx) : 0;
+      };
+
+      // ── Data Helpers ──────────────────────────────
+      const saveLocal = () => {
+        try { localStorage.setItem(STORAGE_KEY, JSON.stringify(localDeposits)); } catch {}
+      };
+
+      const getAllDeposits = () => [
+        ...G.deposits.map((d, idx) => ({ ...d, _local: false, _key: `base_${idx}` })),
+        ...localDeposits.map((d) => ({ ...d, _local: true }))
+      ];
+
+      const computeStats = () => {
+        const all = getAllDeposits();
+        const people = G.people.map((p) => {
+          const mine = all.filter((d) => d.who === p.id);
+          const total = mine.reduce((s, d) => s + Number(d.amount), 0);
+          const best = mine.reduce((m, d) => Math.max(m, Number(d.amount)), 0);
+          return { ...p, total, count: mine.length, best };
+        });
+        const saved = people.reduce((s, p) => s + p.total, 0);
+        const remaining = Math.max(G.target - saved, 0);
+        const progress = Math.min(saved / G.target, 1);
+
+        const dates = all.map((d) => new Date(d.date + "T12:00:00")).sort((a, b) => a - b);
+        let weeklyPace = 0;
+        let etaDate = null;
+        if (dates.length >= 2 && saved > 0) {
+          const days = Math.max((Date.now() - dates[0]) / 864e5, 7);
+          weeklyPace = (saved / days) * 7;
+          if (remaining > 0 && weeklyPace > 0) {
+            etaDate = new Date(Date.now() + (remaining / (weeklyPace / 7)) * 864e5);
+          }
+        }
+        return { all, people, saved, remaining, progress, weeklyPace, etaDate };
+      };
+
+      // ── Rolling Odometer Renderer ─────────────────
+      const renderOdometer = (text) => {
+        const el = $("remaining");
+        el.innerHTML = "";
+        for (const ch of text) {
+          if (/\d/.test(ch) && !reduce) {
+            const digit = Number(ch);
+            const wrap = document.createElement("span");
+            wrap.className = "odo-digit";
+            const reel = document.createElement("span");
+            reel.className = "odo-reel";
+            for (let n = 0; n <= 9; n++) {
+              const s = document.createElement("span");
+              s.textContent = String(n);
+              reel.append(s);
+            }
+            wrap.append(reel);
+            el.append(wrap);
+            reel.style.transform = "translateY(0%)";
+            requestAnimationFrame(() => {
+              requestAnimationFrame(() => {
+                reel.style.transform = `translateY(-${digit * 10}%)`;
+              });
+            });
+          } else {
+            const s = document.createElement("span");
+            s.className = "odo-static";
+            s.textContent = ch;
+            el.append(s);
+          }
+        }
+      };
+
+      // ── Main Render Function ──────────────────────
+      const C = 2 * Math.PI * 120;
+      const NS = "http://www.w3.org/2000/svg";
+
+      const renderAll = () => {
+        const { all, people, saved, remaining, progress, weeklyPace, etaDate } = computeStats();
+        const byId = Object.fromEntries(people.map((p) => [p.id, p]));
+        const pctNum = Math.round(progress * 100);
+
+        // Sync badge
+        const badge = $("sync-badge");
+        badge.textContent = String(localDeposits.length);
+        badge.hidden = localDeposits.length === 0;
+
+        // Topbar & Document title
+        document.title = remaining > 0 ? `Faltan ${money(remaining)} · ${G.title}` : `LISTO · ${G.title}`;
+        $("nav-stat").textContent = remaining > 0 ? `${pctNum}% COMPLETADO` : "MISIÓN CUMPLIDA";
+
+        // Filter pill
+        const filterPill = $("active-filter-pill");
+        if (activeFilter && byId[activeFilter]) {
+          filterPill.hidden = false;
+          $("filter-dot").style.setProperty("--fc", byId[activeFilter].color);
+          $("filter-text").textContent = `Filtrado: ${byId[activeFilter].name}`;
+        } else {
+          filterPill.hidden = true;
+        }
+
+        // Hero Vault numbers
+        $("saved").textContent = money(saved);
+        $("target").textContent = money(G.target);
+        $("pace").textContent = weeklyPace > 0 ? `${money(weeklyPace)}/sem` : "–";
+        $("eta").textContent = remaining <= 0
+          ? "¡Listo!"
+          : (etaDate ? etaDate.toLocaleDateString(G.locale, { month: "short", year: "numeric" }) : "–");
+
+        if (remaining <= 0) {
+          document.body.classList.add("done");
+          $("hero-label").textContent = "Misión cumplida";
+          renderOdometer("A COMPRARLA");
+        } else {
+          document.body.classList.remove("done");
+          $("hero-label").textContent = activeFilter
+            ? `Aporte de ${byId[activeFilter].name}`
+            : "Falta juntar";
+          renderOdometer(activeFilter ? money(byId[activeFilter].total) : money(remaining));
+        }
+
+        $("pct").textContent = activeFilter
+          ? Math.round((byId[activeFilter].total / G.target) * 100)
+          : pctNum;
+        $("pct-label").textContent = activeFilter ? `parte de ${byId[activeFilter].name}` : "juntado";
+
+        // Ring arcs
+        const arcsEl = $("arcs");
+        arcsEl.innerHTML = "";
+        let cursor = 0;
+        people.forEach((p) => {
+          const share = Math.min(p.total / G.target, 1 - cursor);
+          if (share <= 0) return;
+          const c = document.createElementNS(NS, "circle");
+          c.setAttribute("class", "arc");
+          if (activeFilter && activeFilter !== p.id) c.classList.add("dim");
+          if (activeFilter === p.id) c.classList.add("active");
+          c.setAttribute("cx", 140); c.setAttribute("cy", 140); c.setAttribute("r", 120);
+          c.style.stroke = p.color;
+          const len = Math.max(share - 0.006, 0);
+          c.style.strokeDasharray = `${len * C} ${C}`;
+          c.style.strokeDashoffset = `${-cursor * C}`;
+          c.addEventListener("click", () => toggleFilter(p.id));
+          arcsEl.append(c);
+          cursor += share;
+        });
+
+        // Split bar
+        const splitHead = $("split-head");
+        const splitBar = $("split-bar");
+        splitHead.innerHTML = "";
+        splitBar.innerHTML = "";
+        people.forEach((p) => {
+          const ratio = saved > 0 ? Math.round((p.total / saved) * 100) : 0;
+          const span = document.createElement("span");
+          span.innerHTML = `${p.name} <b>${ratio}%</b>`;
+          splitHead.append(span);
+
+          const seg = document.createElement("div");
+          seg.className = "split-seg" + (activeFilter && activeFilter !== p.id ? " dim" : "");
+          seg.style.width = `${saved > 0 ? (p.total / saved) * 100 : 0}%`;
+          seg.style.background = p.color;
+          splitBar.append(seg);
+        });
+
+        // Leonida Map Milestones
+        renderMap(saved, progress);
+
+        // Crew Cards
+        const peopleEl = $("people");
+        peopleEl.innerHTML = "";
+        people.forEach((p) => {
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "person";
+          if (activeFilter === p.id) btn.classList.add("selected");
+          if (activeFilter && activeFilter !== p.id) btn.classList.add("dimmed");
+          btn.style.setProperty("--pc", p.color);
+          btn.setAttribute("aria-pressed", String(activeFilter === p.id));
+
+          const shareOfSaved = saved > 0 ? Math.round((p.total / saved) * 100) : 0;
+          const shareOfGoal = Math.round((p.total / G.target) * 100);
+          btn.innerHTML = `
+            <div class="person-top">
+              <div class="person-head">
+                <div class="avatar"></div>
+                <div>
+                  <div class="person-name"></div>
+                  <div class="person-count"></div>
+                </div>
+              </div>
+              <span class="filter-cue">${activeFilter === p.id ? "Activo" : "Filtrar"}</span>
+            </div>
+            <div>
+              <div class="person-amount"></div>
+              <div class="person-share"></div>
+              <div class="bar"><i></i></div>
+            </div>`;
+          if (p.image) {
+            const bg = new Image();
+            bg.className = "bg"; bg.alt = ""; bg.decoding = "async"; bg.src = p.image;
+            btn.prepend(bg);
+          }
+          btn.querySelector(".avatar").textContent = p.name.trim()[0]?.toUpperCase() ?? "?";
+          btn.querySelector(".person-name").textContent = p.name;
+          btn.querySelector(".person-count").textContent = `${p.count} depósito${p.count === 1 ? "" : "s"} · Máx ${money(p.best)}`;
+          btn.querySelector(".person-amount").textContent = money(p.total);
+          btn.querySelector(".person-share").textContent = `${shareOfSaved}% del pozo · ${shareOfGoal}% de la meta`;
+          btn.addEventListener("click", () => toggleFilter(p.id));
+          peopleEl.append(btn);
+          requestAnimationFrame(() => {
+            btn.querySelector(".bar i").style.transform = `scaleX(${Math.min(p.total / G.target, 1)})`;
+          });
+        });
+
+        // Simulator refresh
+        updateSimulator(remaining, weeklyPace);
+
+        // Ledger
+        const hist = $("history");
+        hist.innerHTML = "";
+        const filtered = activeFilter ? all.filter((d) => d.who === activeFilter) : all;
+        const sorted = [...filtered].sort((a, b) => b.date.localeCompare(a.date));
+        $("ledger-heading").textContent = activeFilter
+          ? `Depósitos de ${byId[activeFilter].name}`
+          : "Historial de Depósitos";
+
+        if (!sorted.length) {
+          hist.innerHTML = `<li class="empty">Todavía no hay depósitos. Tocá <b>Nuevo depósito</b> para cargar el primero.</li>`;
+        } else {
+          sorted.forEach((d) => {
+            const p = byId[d.who] ?? { name: d.who, color: "#888" };
+            const li = document.createElement("li");
+            li.style.setProperty("--pc", p.color);
+            const mainText = d.note ? `${p.name} · ${d.note}` : p.name;
+            const dateStr = new Date(d.date + "T12:00:00").toLocaleDateString(G.locale, {
+              day: "numeric", month: "short", year: "numeric"
+            });
+            li.innerHTML = `
+              <span class="dot"></span>
+              <div>
+                <div class="h-main"><span class="h-text"></span>${d._local ? '<span class="h-local">Local</span>' : ''}</div>
+                <div class="h-sub"></div>
+              </div>
+              <div class="h-amt"></div>
+              <div></div>`;
+            li.querySelector(".h-text").textContent = mainText;
+            li.querySelector(".h-sub").textContent = dateStr;
+            li.querySelector(".h-amt").textContent = `+${money(d.amount)}`;
+            if (d._local) {
+              const del = document.createElement("button");
+              del.type = "button";
+              del.className = "h-del";
+              del.setAttribute("aria-label", "Eliminar depósito local");
+              del.title = "Eliminar depósito local";
+              del.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/></svg>`;
+              del.addEventListener("click", () => removeLocalDeposit(d._id));
+              li.lastElementChild.append(del);
+            }
+            hist.append(li);
+          });
+        }
+      };
+
+      // ── Map Renderer ──────────────────────────────
+      const renderMap = (saved, progress) => {
+        const routeFill = $("route-fill");
+        const totalLen = routeFill.getTotalLength();
+        routeFill.style.strokeDasharray = `${totalLen}`;
+        routeFill.style.strokeDashoffset = `${totalLen * (1 - progress)}`;
+
+        const nextIdx = MILESTONES.findIndex((m) => saved < G.target * m.pct);
+        if (selectedMilestone === -1) selectedMilestone = nextIdx === -1 ? MILESTONES.length - 1 : nextIdx;
+
+        const pinsEl = $("map-pins");
+        const tabsEl = $("milestone-tabs");
+        pinsEl.innerHTML = "";
+        tabsEl.innerHTML = "";
+
+        MILESTONES.forEach((m, idx) => {
+          const threshold = G.target * m.pct;
+          const unlocked = saved >= threshold;
+          const isNext = idx === nextIdx;
+
+          const pin = document.createElement("button");
+          pin.type = "button";
+          pin.className = `map-pin ${unlocked ? "unlocked" : isNext ? "next" : ""}`;
+          pin.style.left = `${m.x}%`;
+          pin.style.top = `${m.y}%`;
+          pin.setAttribute("aria-pressed", String(idx === selectedMilestone));
+          pin.innerHTML = `<span class="pin-dot"></span><span class="pin-tag">${m.label}</span>`;
+          pin.addEventListener("click", () => { selectedMilestone = idx; playTone("click"); renderMap(saved, progress); });
+          pinsEl.append(pin);
+
+          const tab = document.createElement("button");
+          tab.type = "button";
+          tab.className = `m-tab ${unlocked ? "unlocked" : ""}`;
+          tab.setAttribute("aria-pressed", String(idx === selectedMilestone));
+          tab.textContent = `${Math.round(m.pct * 100)}%`;
+          tab.addEventListener("click", () => { selectedMilestone = idx; playTone("click"); renderMap(saved, progress); });
+          tabsEl.append(tab);
+        });
+
+        const cur = MILESTONES[selectedMilestone] ?? MILESTONES[0];
+        const curThreshold = G.target * cur.pct;
+        const curUnlocked = saved >= curThreshold;
+        const curIsNext = selectedMilestone === nextIdx;
+
+        const st = $("intel-status");
+        st.className = `intel-status ${curUnlocked ? "unlocked" : curIsNext ? "next" : "locked"}`;
+        st.textContent = curUnlocked ? "DESBLOQUEADO" : curIsNext ? "PRÓXIMO OBJETIVO" : "BLOQUEADO";
+        $("intel-title").textContent = cur.title;
+        $("intel-desc").textContent = cur.desc;
+        $("intel-metric").innerHTML = curUnlocked
+          ? `Meta de <b>${money(curThreshold)}</b> superada.`
+          : `Se desbloquea en <b>${money(curThreshold)}</b> · Faltan <b>${money(curThreshold - saved)}</b>.`;
+      };
+
+      // ── Simulator ─────────────────────────────────
+      const slider = $("sim-slider");
+      const updateSimulator = (remaining, currentWeekly) => {
+        const rate = Number(slider.value);
+        $("sim-rate-val").textContent = `${money(rate)}/sem`;
+        document.querySelectorAll(".preset-chip").forEach((c) => {
+          c.classList.toggle("active", Number(c.dataset.rate) === rate);
+        });
+        if (remaining <= 0) {
+          $("sim-date").textContent = "¡META CUMPLIDA!";
+          $("sim-sub").textContent = "Se terminó la espera. Hora de ir a buscar la PS5 + GTA VI.";
+          return;
+        }
+        const weeks = Math.ceil(remaining / rate);
+        const targetDate = new Date(Date.now() + weeks * 7 * 864e5);
+        $("sim-date").textContent = targetDate.toLocaleDateString(G.locale, {
+          day: "numeric", month: "short", year: "numeric"
+        });
+        let compare = "";
+        if (currentWeekly > 0) {
+          const curWeeks = Math.ceil(remaining / currentWeekly);
+          const diff = curWeeks - weeks;
+          if (diff > 0) compare = ` · <b>${diff} semana${diff === 1 ? "" : "s"} antes</b> que el ritmo actual`;
+          else if (diff < 0) compare = ` · ${Math.abs(diff)} semana${Math.abs(diff) === 1 ? "" : "s"} después que el ritmo actual`;
+        }
+        $("sim-sub").innerHTML = `Faltan <b>${weeks} semana${weeks === 1 ? "" : "s"}</b> a ${money(rate)}/sem${compare}.`;
+      };
+
+      slider.addEventListener("input", () => {
+        const { remaining, weeklyPace } = computeStats();
+        updateSimulator(remaining, weeklyPace);
+      });
+      $("sim-presets").addEventListener("click", (e) => {
+        const btn = e.target.closest(".preset-chip");
+        if (!btn) return;
+        slider.value = btn.dataset.rate;
+        playTone("click");
+        const { remaining, weeklyPace } = computeStats();
+        updateSimulator(remaining, weeklyPace);
+      });
+
+      // ── Filter Logic ──────────────────────────────
+      const toggleFilter = (id) => {
+        activeFilter = activeFilter === id ? null : id;
+        playTone("click");
+        renderAll();
+      };
+      $("active-filter-pill").addEventListener("click", () => {
+        activeFilter = null;
+        renderAll();
+      });
+
+      // ── Log Deposit Modal ─────────────────────────
+      const depDialog = $("deposit-dialog");
+      let chosenWho = G.people[0]?.id ?? "me";
+
+      const buildCrewPicker = () => {
+        const picker = $("crew-picker");
+        picker.innerHTML = "";
+        G.people.forEach((p) => {
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "crew-opt";
+          btn.style.setProperty("--pc", p.color);
+          btn.setAttribute("role", "radio");
+          btn.setAttribute("aria-checked", String(p.id === chosenWho));
+          btn.innerHTML = `<span class="mini-av">${p.name.trim()[0]?.toUpperCase() ?? "?"}</span><span>${p.name}</span>`;
+          btn.addEventListener("click", () => {
+            chosenWho = p.id;
+            picker.querySelectorAll(".crew-opt").forEach((el, i) => {
+              el.setAttribute("aria-checked", String(G.people[i].id === chosenWho));
+            });
+          });
+          picker.append(btn);
+        });
+      };
+
+      const openDepositModal = () => {
+        buildCrewPicker();
+        $("dep-amount").value = "";
+        $("dep-note").value = "";
+        const today = new Date();
+        $("dep-date").value = new Date(today.getTime() - today.getTimezoneOffset() * 60000).toISOString().slice(0, 10);
+        depDialog.showModal();
+        setTimeout(() => $("dep-amount").focus(), 40);
+      };
+
+      $("add-btn").addEventListener("click", openDepositModal);
+      $("dep-close").addEventListener("click", () => depDialog.close());
+      depDialog.addEventListener("click", (e) => { if (e.target === depDialog) depDialog.close(); });
+
+      document.querySelectorAll(".quick-btn").forEach((b) => {
+        b.addEventListener("click", () => {
+          const cur = Number($("dep-amount").value) || 0;
+          $("dep-amount").value = String(cur + Number(b.dataset.amt));
+          playTone("click");
+        });
+      });
+
+      $("deposit-form").addEventListener("submit", (e) => {
+        e.preventDefault();
+        const amount = Math.round(Number($("dep-amount").value));
+        if (!amount || amount <= 0) return;
+        const note = $("dep-note").value.trim();
+        const date = $("dep-date").value || new Date().toISOString().slice(0, 10);
+        const entry = { _id: `loc_${Date.now()}`, who: chosenWho, amount, date };
+        if (note) entry.note = note;
+
+        localDeposits.push(entry);
+        saveLocal();
+        depDialog.close();
+
+        const person = G.people.find((p) => p.id === chosenWho);
+        selectedMilestone = -1; // auto-focus next objective
+        renderAll();
+        playTone("deposit");
+        burstParticles(person?.color);
+        showToast(`+${money(amount)} guardado para ${person?.name ?? chosenWho}`, "Deshacer", () => {
+          removeLocalDeposit(entry._id, true);
+        });
+      });
+
+      const removeLocalDeposit = (id, silent = false) => {
+        const idx = localDeposits.findIndex((d) => d._id === id);
+        if (idx === -1) return;
+        const [removed] = localDeposits.splice(idx, 1);
+        saveLocal();
+        renderAll();
+        if (!silent) {
+          showToast(`Depósito de ${money(removed.amount)} eliminado`, "Deshacer", () => {
+            localDeposits.push(removed);
+            saveLocal();
+            renderAll();
+          });
+        }
+      };
+
+      // ── Export / Sync data.js Modal ───────────────
+      const expDialog = $("export-dialog");
+      const generateDataJs = () => {
+        const merged = getAllDeposits().map(({ who, amount, date, note }) => {
+          const obj = { who, amount, date };
+          if (note) obj.note = note;
+          return obj;
+        });
+        const lines = merged.map((d) => {
+          const notePart = d.note ? `, note: ${JSON.stringify(d.note)}` : "";
+          return `    { who: ${JSON.stringify(d.who)}, amount: ${d.amount}, date: ${JSON.stringify(d.date)}${notePart} },`;
+        });
+        const peopleLines = G.people.map((p) =>
+          `    { id: ${JSON.stringify(p.id)}, name: ${JSON.stringify(p.name)}, color: ${JSON.stringify(p.color)}${p.image ? `, image: ${JSON.stringify(p.image)}` : ""} },`
+        );
+        const galleryLines = (G.gallery ?? []).map((g) =>
+          `    { src: ${JSON.stringify(g.src)}, caption: ${JSON.stringify(g.caption)}${g.hero === false ? ", hero: false" : ""} },`
+        );
+        return `// ─────────────────────────────────────────────────────────────
+//  THE ONLY FILE YOU NEED TO EDIT.
+//  Add a line to \`deposits\` every time someone saves money,
+//  then refresh the page.
+// ─────────────────────────────────────────────────────────────
+
+window.GOAL = {
+  title: ${JSON.stringify(G.title)},
+  subtitle: ${JSON.stringify(G.subtitle ?? "")},
+
+  target: ${G.target},
+  currency: ${JSON.stringify(G.currency)},
+  locale: ${JSON.stringify(G.locale)},
+
+  people: [
+${peopleLines.join("\n")}
+  ],
+
+  soundtrack: ${JSON.stringify(G.soundtrack ?? null)},
+  mapImage: ${JSON.stringify(G.mapImage ?? "")},
+  gallery: [
+${galleryLines.join("\n")}
+  ],
+
+  deposits: [
+${lines.join("\n")}
+  ],
+};
+`;
+      };
+
+      $("export-btn").addEventListener("click", () => {
+        $("export-code").value = generateDataJs();
+        $("reset-local").hidden = localDeposits.length === 0;
+        expDialog.showModal();
+      });
+      $("exp-close").addEventListener("click", () => expDialog.close());
+      expDialog.addEventListener("click", (e) => { if (e.target === expDialog) expDialog.close(); });
+
+      $("copy-export").addEventListener("click", async () => {
+        try {
+          await navigator.clipboard.writeText($("export-code").value);
+          showToast("data.js copiado al portapapeles");
+        } catch {
+          $("export-code").select();
+          document.execCommand("copy");
+          showToast("data.js copiado");
+        }
+      });
+      $("download-export").addEventListener("click", () => {
+        const blob = new Blob([$("export-code").value], { type: "application/javascript" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url; a.download = "data.js"; a.click();
+        URL.revokeObjectURL(url);
+        showToast("data.js descargado");
+      });
+      $("reset-local").addEventListener("click", () => {
+        localDeposits = [];
+        saveLocal();
+        expDialog.close();
+        renderAll();
+        showToast("Depósitos locales borrados");
+      });
+
+      // ── Cinematic Backdrop Rotation ───────────────
+      const gallery = G.gallery ?? [];
+      const backdrop = $("backdrop");
+      const shots = gallery.filter((g) => g.hero !== false);
+      const layers = shots.map((g) => {
+        const img = new Image();
+        img.src = g.src; img.alt = ""; img.decoding = "async";
+        backdrop.append(img);
+        return img;
+      });
+      let shown = -1;
+      const showShot = (i) => {
+        if (!layers.length) return;
+        layers[shown]?.classList.remove("on");
+        const img = layers[i];
+        img.style.animation = "none"; void img.offsetWidth; img.style.animation = "";
+        img.classList.add("on");
+        shown = i;
+      };
+      showShot(0);
+      if (layers.length > 1 && !reduce) setInterval(() => showShot((shown + 1) % layers.length), 9500);
+
+      // ── Showcase Gallery + Keyboard Lightbox ──────
+      const strip = $("strip");
+      const lb = $("lightbox"), lbImg = lb.querySelector("img");
+      let lbIdx = 0, openedFrom = null;
+      const vt = (fn) => (document.startViewTransition && !reduce ? document.startViewTransition(fn) : fn());
+
+      if (gallery.length) {
+        $("gallery").hidden = false;
+        gallery.forEach((g, i) => {
+          const tile = document.createElement("button");
+          tile.type = "button";
+          tile.className = "tile";
+          tile.setAttribute("aria-label", `Open ${g.caption}`);
+          tile.innerHTML = `
+            <div class="frame"><img alt="" loading="lazy" decoding="async" /><div class="shade"></div></div>
+            <div class="cap"><div class="n"></div><div class="t"></div></div>`;
+          tile.querySelector("img").src = g.src;
+          tile.querySelector(".n").textContent = `No. ${String(i + 1).padStart(2, "0")}`;
+          tile.querySelector(".t").textContent = g.caption;
+          tile.addEventListener("click", () => openLightbox(i, tile));
+          strip.append(tile);
+        });
+
+        const tiles = [...strip.children];
+        let ticking = false;
+        const markCurrent = () => {
+          ticking = false;
+          const mid = strip.getBoundingClientRect().left + strip.clientWidth / 2;
+          let best = tiles[0], dist = Infinity;
+          for (const t of tiles) {
+            const r = t.getBoundingClientRect();
+            const d = Math.abs(r.left + r.width / 2 - mid);
+            if (d < dist) { dist = d; best = t; }
+          }
+          tiles.forEach((t) => t.classList.toggle("current", t === best));
+        };
+        strip.addEventListener("scroll", () => { if (!ticking) { ticking = true; requestAnimationFrame(markCurrent); } }, { passive: true });
+        requestAnimationFrame(() => {
+          const midTile = tiles[Math.floor(tiles.length / 2)];
+          strip.scrollTo({ left: midTile.offsetLeft - (strip.clientWidth - midTile.clientWidth) / 2 });
+          markCurrent();
+        });
+
+        const page = (dir) => {
+          const w = strip.firstElementChild.getBoundingClientRect().width + 18;
+          strip.scrollBy({ left: dir * w, behavior: reduce ? "auto" : "smooth" });
+        };
+        $("g-prev").addEventListener("click", () => page(-1));
+        $("g-next").addEventListener("click", () => page(1));
+      }
+
+      const syncLightbox = () => {
+        const g = gallery[lbIdx];
+        if (!g) return;
+        lbImg.src = g.src;
+        lbImg.alt = g.caption;
+        $("lb-title").textContent = g.caption;
+        $("lb-count").textContent = `${lbIdx + 1} / ${gallery.length}`;
+      };
+
+      const openLightbox = (idx, tile) => {
+        lbIdx = idx;
+        const src = tile.querySelector("img");
+        src.style.viewTransitionName = "shot";
+        openedFrom = src;
+        vt(() => {
+          src.style.viewTransitionName = "";
+          syncLightbox();
+          lbImg.style.viewTransitionName = "shot";
+          lb.showModal();
+        });
+      };
+
+      const closeLightbox = () => {
+        vt(() => {
+          lbImg.style.viewTransitionName = "";
+          if (openedFrom) openedFrom.style.viewTransitionName = "shot";
+          lb.close();
+        }).finished?.then(() => { if (openedFrom) openedFrom.style.viewTransitionName = ""; });
+      };
+
+      const stepLightbox = (dir) => {
+        lbIdx = (lbIdx + dir + gallery.length) % gallery.length;
+        syncLightbox();
+      };
+
+      $("lb-prev").addEventListener("click", () => stepLightbox(-1));
+      $("lb-next").addEventListener("click", () => stepLightbox(1));
+      $("lb-close").addEventListener("click", closeLightbox);
+      lb.addEventListener("click", (e) => { if (e.target === lb) closeLightbox(); });
+      lb.addEventListener("cancel", (e) => { e.preventDefault(); closeLightbox(); });
+
+      // Global keyboard shortcuts
+      window.addEventListener("keydown", (e) => {
+        if (lb.open) {
+          if (e.key === "ArrowLeft") stepLightbox(-1);
+          if (e.key === "ArrowRight") stepLightbox(1);
+          return;
+        }
+        if (depDialog.open || expDialog.open) return;
+        if (e.target.matches("input, textarea")) return;
+        if (e.key === "n" || e.key === "N") {
+          e.preventDefault();
+          openDepositModal();
+        }
+      });
+
+      // ── 3D Spring Tilt on Vault Card ──────────────
+      if (!reduce && matchMedia("(hover: hover) and (pointer: fine)").matches) {
+        const card = $("card");
+        const k = Math.pow((2 * Math.PI) / 0.48, 2);
+        const c = 2 * Math.sqrt(k) * 0.85;
+        const s = { x: 0, y: 0, vx: 0, vy: 0, tx: 0, ty: 0 };
+        let raf = 0, last = 0;
+        const step = (now) => {
+          const dt = Math.min((now - last) / 1000, 1 / 30);
+          last = now;
+          for (const a of ["x", "y"]) {
+            const v = "v" + a, t = "t" + a;
+            s[v] += (-k * (s[a] - s[t]) - c * s[v]) * dt;
+            s[a] += s[v] * dt;
+          }
+          card.style.transform = `rotateX(${s.x}deg) rotateY(${s.y}deg)`;
+          const settled = Math.abs(s.x - s.tx) + Math.abs(s.y - s.ty) + Math.abs(s.vx) + Math.abs(s.vy) < 0.01;
+          raf = settled ? 0 : requestAnimationFrame(step);
+        };
+        const kick = () => { if (!raf) { last = performance.now(); raf = requestAnimationFrame(step); } };
+        card.addEventListener("pointermove", (e) => {
+          const r = card.getBoundingClientRect();
+          const nx = (e.clientX - r.left) / r.width - 0.5;
+          const ny = (e.clientY - r.top) / r.height - 0.5;
+          s.tx = ny * -7; s.ty = nx * 9;
+          card.style.setProperty("--mx", `${(nx + 0.5) * 100}%`);
+          card.style.setProperty("--my", `${(ny + 0.5) * 100}%`);
+          kick();
+        });
+        card.addEventListener("pointerleave", () => {
+          s.tx = 0; s.ty = 0;
+          card.style.setProperty("--mx", "50%");
+          card.style.setProperty("--my", "0%");
+          kick();
+        });
+      }
+
+      // ── Initial render ────────────────────────────
+      selectedMilestone = -1;
+      renderAll();
+
+      // ── Background YouTube Radio ──────────────────
+      const ytId = G.soundtrack?.youtubeId;
+      const radioBtn = $("radio-toggle");
+      const radioLabel = $("radio-label");
+      if (!ytId) {
+        radioBtn.hidden = true;
+      } else {
+        if (G.soundtrack?.label) radioLabel.textContent = G.soundtrack.label;
+        let ytPlayer = null;
+        let ytReady = false;
+        let radioPlaying = false;
+        let userPaused = false;
+        let pendingPlay = false;
+        let ytErrored = false;
+
+        const setRadioUI = (playing) => {
+          radioPlaying = playing;
+          radioBtn.setAttribute("aria-pressed", String(playing));
+          radioBtn.title = playing ? "Pausar música de fondo" : "Reproducir música de fondo";
+          radioLabel.textContent = playing ? "Sonando" : (G.soundtrack?.label ?? "Radio");
+        };
+
+        const startRadio = (explicit = false) => {
+          if (ytErrored) {
+            if (explicit) showToast("Abrí la página desde localhost (ej. python3 -m http.server) para escuchar el audio de YouTube");
+            return;
+          }
+          if (!ytReady || !ytPlayer) { pendingPlay = true; return; }
+          try {
+            ytPlayer.unMute();
+            ytPlayer.setVolume(45);
+            ytPlayer.playVideo();
+          } catch {}
+        };
+
+        const pauseRadio = () => {
+          pendingPlay = false;
+          if (ytReady && ytPlayer) {
+            try { ytPlayer.pauseVideo(); } catch {}
+          }
+          setRadioUI(false);
+        };
+
+        radioBtn.addEventListener("click", (e) => {
+          e.stopPropagation();
+          if (radioPlaying) {
+            userPaused = true;
+            pauseRadio();
+          } else {
+            userPaused = false;
+            startRadio(true);
+          }
+        });
+
+        // Browsers block unmuted autoplay until the first user gesture:
+        // tune in automatically on the first interaction unless the user paused it.
+        const unlockOnFirstGesture = () => {
+          if (!userPaused && !radioPlaying) startRadio(false);
+        };
+        window.addEventListener("pointerdown", unlockOnFirstGesture, { once: true });
+        window.addEventListener("keydown", unlockOnFirstGesture, { once: true });
+
+        window.onYouTubeIframeAPIReady = () => {
+          const playerVars = {
+            autoplay: 0,
+            controls: 0,
+            disablekb: 1,
+            fs: 0,
+            loop: 1,
+            playlist: ytId,
+            playsinline: 1,
+            rel: 0
+          };
+          if (location.protocol.startsWith("http")) {
+            playerVars.origin = location.origin;
+          }
+          ytPlayer = new YT.Player("yt-player", {
+            height: "1",
+            width: "1",
+            videoId: ytId,
+            playerVars,
+            events: {
+              onReady: () => {
+                ytReady = true;
+                if (pendingPlay && !userPaused) startRadio(false);
+              },
+              onStateChange: (ev) => {
+                if (ev.data === YT.PlayerState.PLAYING) setRadioUI(true);
+                else if (ev.data === YT.PlayerState.PAUSED || ev.data === YT.PlayerState.ENDED) setRadioUI(false);
+              },
+              onError: () => {
+                ytErrored = true;
+                setRadioUI(false);
+              }
+            }
+          });
+        };
+
+        const tag = document.createElement("script");
+        tag.src = "https://www.youtube.com/iframe_api";
+        document.head.append(tag);
+      }
+    })();
+  </script>
+</body>
+</html>

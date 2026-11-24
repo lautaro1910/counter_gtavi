@@ -7,7 +7,6 @@
   <meta name="theme-color" content="#08070e" />
   <title>PS5 + GTA VI · Heist Board</title>
   <style>
-    /* ── Self-hosted fonts ─────────────────────────── */
     @font-face {
       font-family: "Barlow Condensed";
       font-style: normal;
@@ -164,7 +163,6 @@
       --my: 0%;
     }
 
-    /* ── Browser surface theming ───────────────────── */
     ::selection { background: color-mix(in srgb, var(--c2) 38%, #110f1b); color: #fff; }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html {
@@ -198,14 +196,12 @@
       outline-offset: 3px;
     }
 
-    /* ── FX Canvas (Celebration particles) ─────────── */
     #fx-canvas {
       position: fixed; inset: 0; z-index: 90;
       width: 100%; height: 100%;
       pointer-events: none;
     }
 
-    /* ── Cinematic backdrop ────────────────────────── */
     .backdrop {
       position: fixed; inset: 0; z-index: -2; overflow: hidden;
       background: var(--bg);
@@ -232,7 +228,6 @@
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
     }
 
-    /* ── Top Command Bar ───────────────────────────── */
     .topbar {
       position: sticky; top: 0; z-index: 40;
       backdrop-filter: blur(18px) saturate(140%);
@@ -323,7 +318,6 @@
       pointer-events: none; bottom: 0; left: -9999px; overflow: hidden;
     }
 
-    /* ── Entry Splash Screen (unlocks browser audio) ─ */
     body.splash-open { overflow: hidden; }
     .splash {
       position: fixed; inset: 0; z-index: 100;
@@ -407,7 +401,6 @@
     }
     .sync-badge[hidden] { display: none; }
 
-    /* ── Main container ────────────────────────────── */
     main {
       max-width: 1060px; margin: 0 auto;
       padding: 0 20px;
@@ -415,7 +408,6 @@
       gap: 36px;
     }
 
-    /* ── Header ────────────────────────────────────── */
     header {
       padding: max(6vh, 36px) 0 4px;
       display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px;
@@ -450,7 +442,6 @@
     .filter-pill .f-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--fc, var(--c1)); }
     .filter-pill[hidden] { display: none; }
 
-    /* ── Primary Vault Deck (3D Tilt Stage) ────────── */
     .stage { perspective: 1400px; }
     .vault-card {
       position: relative;
@@ -515,7 +506,6 @@
       color: var(--sun);
     }
 
-    /* Rolling mechanical odometer */
     .odometer {
       margin: 8px 0 18px;
       font-family: var(--font-display);
@@ -541,7 +531,6 @@
     .odo-static { display: inline-block; line-height: 1.08em; }
     .done .odometer { color: var(--c1); }
 
-    /* Crew tug-of-war split bar */
     .split-wrap { margin-bottom: 20px; }
     .split-head {
       display: flex; justify-content: space-between; align-items: center; gap: 12px;
@@ -560,7 +549,6 @@
     }
     .split-seg.dim { opacity: 0.24; }
 
-    /* Telemetry grid */
     .telemetry {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -584,7 +572,6 @@
       white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
     }
 
-    /* ── Section headers (No eyebrows!) ────────────── */
     .sec-head {
       display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between;
       gap: 12px; margin-bottom: 16px;
@@ -600,7 +587,6 @@
       color: var(--muted); font-size: 0.9375rem; margin-top: 4px;
     }
 
-    /* ── Interactive Leonida Mission Map ───────────── */
     .map-board {
       position: relative;
       border-radius: var(--radius-lg);
@@ -725,7 +711,6 @@
       color: var(--text);
     }
 
-    /* ── Crew Roster (Interactive Filter Cards) ────── */
     .people {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -793,7 +778,6 @@
       transition: transform 1100ms var(--ease);
     }
 
-    /* ── What-If Pace Simulator ────────────────────── */
     .simulator {
       border-radius: var(--radius-lg);
       padding: clamp(22px, 4vw, 34px);
@@ -865,7 +849,6 @@
     .sim-sub { font-size: 0.875rem; color: var(--muted); }
     .sim-sub b { color: var(--c1); }
 
-    /* ── Gallery (3D Coverflow) ────────────────────── */
     .gallery { margin-inline: calc(50% - 50vw); padding: 8px 0; }
     .g-head {
       max-width: 1060px; margin: 0 auto 4px; padding: 0 20px;
@@ -936,7 +919,6 @@
       }
     }
 
-    /* ── Deposit Ledger ────────────────────────────── */
     .ledger {
       border-radius: var(--radius-lg);
       padding: clamp(22px, 4vw, 32px);
@@ -978,7 +960,6 @@
     }
     footer code { font-family: var(--font-mono); color: var(--muted); }
 
-    /* ── Dialogs (Add Deposit, Export, Lightbox) ───── */
     dialog {
       margin: auto; padding: 0; border: 0; background: transparent; color: var(--text);
       max-width: 94vw; max-height: 92vh; overflow: visible;
@@ -1066,7 +1047,6 @@
     .sheet-actions { display: flex; gap: 10px; flex-wrap: wrap; }
     .sheet-actions .btn { flex: 1; }
 
-    /* Lightbox */
     #lightbox { width: min(92vw, 1280px); }
     .lb-frame { position: relative; display: grid; place-items: center; }
     #lightbox img {
@@ -1089,7 +1069,6 @@
 
     ::view-transition-group(shot) { animation-duration: 420ms; animation-timing-function: var(--ease); }
 
-    /* ── Toast notification ────────────────────────── */
     .toast {
       position: fixed; left: 50%; bottom: max(24px, env(safe-area-inset-bottom));
       z-index: 80;
@@ -1113,7 +1092,6 @@
     }
     .toast-btn:hover { background: rgba(255, 178, 107, 0.24); }
 
-    /* ── Responsive ────────────────────────────────── */
     @media (max-width: 860px) {
       .vault-card { grid-template-columns: 1fr; justify-items: center; text-align: center; }
       .telemetry { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -1156,7 +1134,6 @@
   <div class="backdrop" id="backdrop" aria-hidden="true"></div>
   <div class="grain" aria-hidden="true"></div>
 
-  <!-- Top Command Bar -->
   <nav class="topbar" aria-label="Controles principales">
     <div class="topbar-inner">
       <div class="brand-cluster">
@@ -1188,7 +1165,6 @@
   </nav>
 
   <main>
-    <!-- Header -->
     <header>
       <div>
         <h1 id="title"></h1>
@@ -1203,7 +1179,6 @@
       </div>
     </header>
 
-    <!-- Vault Command Deck -->
     <section class="stage" aria-label="Progreso del ahorro">
       <div class="vault-card" id="card">
         <div class="ring-wrap">
@@ -1248,7 +1223,6 @@
       </div>
     </section>
 
-    <!-- Leonida Interactive Heist Map -->
     <section aria-label="Hitos en el mapa de Leonida">
       <div class="sec-head">
         <div>
@@ -1277,7 +1251,6 @@
       </div>
     </section>
 
-    <!-- Crew Roster -->
     <section aria-label="Aportes del equipo">
       <div class="sec-head">
         <div>
@@ -1288,7 +1261,6 @@
       <div class="people" id="people"></div>
     </section>
 
-    <!-- What-If Pace Simulator -->
     <section aria-label="Simulador de ritmo de ahorro">
       <div class="sec-head">
         <div>
@@ -1318,7 +1290,6 @@
       </div>
     </section>
 
-    <!-- Vice City Showcase Gallery -->
     <section class="gallery" id="gallery" hidden aria-label="Galería de Vice City">
       <div class="g-head sec-head">
         <div>
@@ -1337,7 +1308,6 @@
       <div class="strip" id="strip"></div>
     </section>
 
-    <!-- Deposit Ledger -->
     <section aria-label="Historial de depósitos">
       <div class="sec-head">
         <div>
@@ -1355,7 +1325,6 @@
     </footer>
   </main>
 
-  <!-- Add Deposit Dialog -->
   <dialog id="deposit-dialog" aria-labelledby="dep-title">
     <form class="sheet" id="deposit-form" method="dialog">
       <div class="sheet-head">
@@ -1397,7 +1366,6 @@
     </form>
   </dialog>
 
-  <!-- Sync / Export data.js Dialog -->
   <dialog id="export-dialog" aria-labelledby="exp-title">
     <div class="sheet">
       <div class="sheet-head">
@@ -1420,7 +1388,6 @@
     </div>
   </dialog>
 
-  <!-- Lightbox Dialog -->
   <dialog id="lightbox" aria-label="Visor de imágenes">
     <div class="lb-frame">
       <img src="images/Official_Cover_Art_landscape.12.uu2irr.2_a.avif" alt="Vista previa de Vice City" />
@@ -1444,10 +1411,8 @@
     </div>
   </dialog>
 
-  <!-- Hidden YouTube background audio host -->
   <div class="yt-host" aria-hidden="true"><div id="yt-player"></div></div>
 
-  <!-- Toast -->
   <div class="toast" id="toast" role="status" aria-live="polite">
     <span class="toast-msg" id="toast-msg"></span>
     <button type="button" class="toast-btn" id="toast-action" hidden></button>
@@ -1461,14 +1426,13 @@
       const $ = (id) => document.getElementById(id);
       const STORAGE_KEY = "counterclock_local_deposits_v1";
 
-      // ── State ─────────────────────────────────────
       let localDeposits = [];
       try {
         const raw = localStorage.getItem(STORAGE_KEY);
         if (raw) localDeposits = JSON.parse(raw);
       } catch {}
 
-      let activeFilter = null; // person.id or null
+      let activeFilter = null;
       let selectedMilestone = 0;
       let soundEnabled = false;
       let audioCtx = null;
@@ -1486,7 +1450,6 @@
         { id: "m3", pct: 1.00, x: 82, y: 22, label: "GTA VI", title: "Comprar GTA VI", desc: "Golpe completado. Las dos PS5 + GTA VI listos para entrar a Vice City." }
       ];
 
-      // ── Theme tokens ──────────────────────────────
       const root = document.documentElement.style;
       root.setProperty("--c1", G.people[0]?.color ?? "#3ee6d2");
       root.setProperty("--c2", G.people[1]?.color ?? "#ff5fa2");
@@ -1497,7 +1460,6 @@
       $("dep-currency").textContent = G.currency;
       if (G.mapImage) $("map-img").src = G.mapImage;
 
-      // ── Audio Synth (Opt-in Web Audio API) ────────
       const playTone = (type) => {
         if (!soundEnabled) return;
         try {
@@ -1530,7 +1492,6 @@
         if (soundEnabled) playTone("click");
       });
 
-      // ── Toast helper ──────────────────────────────
       const showToast = (msg, actionLabel, actionFn) => {
         clearTimeout(toastTimer);
         $("toast-msg").textContent = msg;
@@ -1551,7 +1512,6 @@
         $("toast").classList.remove("show");
       });
 
-      // ── Canvas 2D Celebration Particles ───────────
       const fxCanvas = $("fx-canvas");
       const fxCtx = fxCanvas.getContext("2d");
       let particles = [];
@@ -1609,7 +1569,6 @@
         fxRaf = particles.length ? requestAnimationFrame(tickFx) : 0;
       };
 
-      // ── Data Helpers ──────────────────────────────
       const saveLocal = () => {
         try { localStorage.setItem(STORAGE_KEY, JSON.stringify(localDeposits)); } catch {}
       };
@@ -1644,7 +1603,6 @@
         return { all, people, saved, remaining, progress, weeklyPace, etaDate };
       };
 
-      // ── Rolling Odometer Renderer ─────────────────
       const renderOdometer = (text) => {
         const el = $("remaining");
         el.innerHTML = "";
@@ -1677,7 +1635,6 @@
         }
       };
 
-      // ── Main Render Function ──────────────────────
       const C = 2 * Math.PI * 120;
       const NS = "http://www.w3.org/2000/svg";
 
@@ -1686,16 +1643,13 @@
         const byId = Object.fromEntries(people.map((p) => [p.id, p]));
         const pctNum = Math.round(progress * 100);
 
-        // Sync badge
         const badge = $("sync-badge");
         badge.textContent = String(localDeposits.length);
         badge.hidden = localDeposits.length === 0;
 
-        // Topbar & Document title
         document.title = remaining > 0 ? `Faltan ${money(remaining)} · ${G.title}` : `LISTO · ${G.title}`;
         $("nav-stat").textContent = remaining > 0 ? `${pctNum}% COMPLETADO` : "MISIÓN CUMPLIDA";
 
-        // Filter pill
         const filterPill = $("active-filter-pill");
         if (activeFilter && byId[activeFilter]) {
           filterPill.hidden = false;
@@ -1705,7 +1659,6 @@
           filterPill.hidden = true;
         }
 
-        // Hero Vault numbers
         $("saved").textContent = money(saved);
         $("target").textContent = money(G.target);
         $("pace").textContent = weeklyPace > 0 ? `${money(weeklyPace)}/sem` : "–";
@@ -1730,7 +1683,6 @@
           : pctNum;
         $("pct-label").textContent = activeFilter ? `parte de ${byId[activeFilter].name}` : "juntado";
 
-        // Ring arcs
         const arcsEl = $("arcs");
         arcsEl.innerHTML = "";
         let cursor = 0;
@@ -1751,7 +1703,6 @@
           cursor += share;
         });
 
-        // Split bar
         const splitHead = $("split-head");
         const splitBar = $("split-bar");
         splitHead.innerHTML = "";
@@ -1769,10 +1720,8 @@
           splitBar.append(seg);
         });
 
-        // Leonida Map Milestones
         renderMap(saved, progress);
 
-        // Crew Cards
         const peopleEl = $("people");
         peopleEl.innerHTML = "";
         people.forEach((p) => {
@@ -1819,10 +1768,8 @@
           });
         });
 
-        // Simulator refresh
         updateSimulator(remaining, weeklyPace);
 
-        // Ledger
         const hist = $("history");
         hist.innerHTML = "";
         const filtered = activeFilter ? all.filter((d) => d.who === activeFilter) : all;
@@ -1868,7 +1815,6 @@
         }
       };
 
-      // ── Map Renderer ──────────────────────────────
       const renderMap = (saved, progress) => {
         const routeFill = $("route-fill");
         const totalLen = routeFill.getTotalLength();
@@ -1922,7 +1868,6 @@
           : `Se desbloquea en <b>${money(curThreshold)}</b> · Faltan <b>${money(curThreshold - saved)}</b>.`;
       };
 
-      // ── Simulator ─────────────────────────────────
       const slider = $("sim-slider");
       const updateSimulator = (remaining, currentWeekly) => {
         const rate = Number(slider.value);
@@ -1963,7 +1908,6 @@
         updateSimulator(remaining, weeklyPace);
       });
 
-      // ── Filter Logic ──────────────────────────────
       const toggleFilter = (id) => {
         activeFilter = activeFilter === id ? null : id;
         playTone("click");
@@ -1974,7 +1918,6 @@
         renderAll();
       });
 
-      // ── Log Deposit Modal ─────────────────────────
       const depDialog = $("deposit-dialog");
       let chosenWho = G.people[0]?.id ?? "me";
 
@@ -2035,7 +1978,7 @@
         depDialog.close();
 
         const person = G.people.find((p) => p.id === chosenWho);
-        selectedMilestone = -1; // auto-focus next objective
+        selectedMilestone = -1;
         renderAll();
         playTone("deposit");
         burstParticles(person?.color);
@@ -2059,7 +2002,6 @@
         }
       };
 
-      // ── Export / Sync data.js Modal ───────────────
       const expDialog = $("export-dialog");
       const generateDataJs = () => {
         const merged = getAllDeposits().map(({ who, amount, date, note }) => {
@@ -2077,13 +2019,7 @@
         const galleryLines = (G.gallery ?? []).map((g) =>
           `    { src: ${JSON.stringify(g.src)}, caption: ${JSON.stringify(g.caption)}${g.hero === false ? ", hero: false" : ""} },`
         );
-        return `// ─────────────────────────────────────────────────────────────
-//  THE ONLY FILE YOU NEED TO EDIT.
-//  Add a line to \`deposits\` every time someone saves money,
-//  then refresh the page.
-// ─────────────────────────────────────────────────────────────
-
-window.GOAL = {
+        return `window.GOAL = {
   title: ${JSON.stringify(G.title)},
   subtitle: ${JSON.stringify(G.subtitle ?? "")},
 
@@ -2142,7 +2078,6 @@ ${lines.join("\n")}
         showToast("Depósitos locales borrados");
       });
 
-      // ── Cinematic Backdrop Rotation ───────────────
       const gallery = G.gallery ?? [];
       const backdrop = $("backdrop");
       const shots = gallery.filter((g) => g.hero !== false);
@@ -2164,7 +2099,6 @@ ${lines.join("\n")}
       showShot(0);
       if (layers.length > 1 && !reduce) setInterval(() => showShot((shown + 1) % layers.length), 9500);
 
-      // ── Showcase Gallery + Keyboard Lightbox ──────
       const strip = $("strip");
       const lb = $("lightbox"), lbImg = lb.querySelector("img");
       let lbIdx = 0, openedFrom = null;
@@ -2256,7 +2190,6 @@ ${lines.join("\n")}
       lb.addEventListener("click", (e) => { if (e.target === lb) closeLightbox(); });
       lb.addEventListener("cancel", (e) => { e.preventDefault(); closeLightbox(); });
 
-      // Global keyboard shortcuts
       window.addEventListener("keydown", (e) => {
         if (lb.open) {
           if (e.key === "ArrowLeft") stepLightbox(-1);
@@ -2278,7 +2211,6 @@ ${lines.join("\n")}
         }
       });
 
-      // ── 3D Spring Tilt on Vault Card ──────────────
       if (!reduce && matchMedia("(hover: hover) and (pointer: fine)").matches) {
         const card = $("card");
         const k = Math.pow((2 * Math.PI) / 0.48, 2);
@@ -2315,7 +2247,6 @@ ${lines.join("\n")}
         });
       }
 
-      // ── Entry Splash Screen ───────────────────────
       const splash = $("splash");
       $("splash-title").textContent = G.title;
       const crewNames = G.people.map((p) => p.name).join(" & ");
@@ -2335,11 +2266,9 @@ ${lines.join("\n")}
       $("splash-enter").addEventListener("click", () => dismissSplash(true));
       $("splash-mute").addEventListener("click", () => dismissSplash(false));
 
-      // ── Initial render ────────────────────────────
       selectedMilestone = -1;
       renderAll();
 
-      // ── Background YouTube Radio ──────────────────
       const ytId = G.soundtrack?.youtubeId;
       const radioBtn = $("radio-toggle");
       const radioLabel = $("radio-label");
